@@ -20,3 +20,9 @@ https://github.com/Blankj/awesome-java-leetcode
 
 p24
 
+--- 6.7
+p26, p27, p28, p29
+
+
+Two pointer 常常对应快慢指针
+
