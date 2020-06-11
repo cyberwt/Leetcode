@@ -11,18 +11,11 @@ https://github.com/Blankj/awesome-java-leetcode
 
 有分类：https://github.com/caipengbo/LeetCode
 
-- 了解每天的进步
-
-
-- Working Tracker
-
---- 6.4
-
-p24
-
---- 6.7
-p26, p27, p28, p29
-
+讲解清晰：https://leetcode.wang/
 
 Two pointer 常常对应快慢指针
+
+
+- 了解每天的进步
+
 
