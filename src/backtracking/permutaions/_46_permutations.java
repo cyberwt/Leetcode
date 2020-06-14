@@ -1,4 +1,4 @@
-package backtracking.permutations;
+package backtracking.permutaions;
 
 import java.util.LinkedList;
 import java.util.List;
