@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  *
- * Array Rotate
+ * Array Rotate: 只需要对 ！一半 的元素进行操作
  *
  * S:O(1) T: O(N)
  *
