@@ -29,4 +29,7 @@ p50 p49 p48 p47 p46 p45
 p39, p40, p41, p42, p38, p44 
 
 
+---- 6.18
+You deserve a better life and your destination is the sky
 
+p20

@@ -19,3 +19,5 @@ Two pointer 常常对应快慢指针
 - 了解每天的进步
 
 
+"The third time when she was given to choose between the hard and the easy, and she choose the easy."
+https://www.1point3acres.com/bbs/thread-422374-1-1.html

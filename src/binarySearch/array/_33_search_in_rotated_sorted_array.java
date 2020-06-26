@@ -44,4 +44,10 @@ public class _33_search_in_rotated_sorted_array {
         return -1;
     }
 
+    public static void main(String[] args) {
+        _33_search_in_rotated_sorted_array solution = new _33_search_in_rotated_sorted_array();
+        int[] num1 = {3,7,7,7,9,10};
+        int res = solution.search(num1,7);
+        System.out.println(res);
+    }
 }
