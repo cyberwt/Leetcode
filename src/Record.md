@@ -33,3 +33,13 @@ p39, p40, p41, p42, p38, p44
 You deserve a better life and your destination is the sky
 
 p20
+
+
+---- 6.29
+重新理解LC 10,44 的动规
+
+lc 51，52， 53
+
+
+
+

@@ -1,4 +1,4 @@
-package list.manip;
+package list;
 
 import utils.ListNode;
 

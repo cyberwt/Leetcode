@@ -51,4 +51,12 @@ public class _37_sudoku_solver {
         }
         return true;
     }
+
+//    public static void main(String[] args){
+//        _37_sudoku_solver solution = new _37_sudoku_solver();
+//
+//        List<List<String>> test = solution.solveSudoku([[12],[],[]]);
+//        System.out.println(solution.solveNQueens(5));
+//    }
+
 }
