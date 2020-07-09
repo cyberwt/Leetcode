@@ -6,7 +6,8 @@ import java.util.List;
 
 /**
  *
- * 没有固定格式
+ * 没有dfs 退出模式，直接return add new list
+ *
  * 为什么是deep copy, 你的理解好像差那么点意思
  *
  *

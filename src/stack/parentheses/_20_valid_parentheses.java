@@ -1,4 +1,4 @@
-package satck.parentheses;
+package stack.parentheses;
 
 import java.util.Stack;
 

@@ -41,5 +41,16 @@ p20
 lc 51，52， 53
 
 
+---- 6.30
+lc 54, lc 1249
 
+
+---- 7.1
+
+理解树遍历的变化
+
+lc 173 -> 94 learn about the how we do the transfer
+
+---- 7.3
+lc 
 
