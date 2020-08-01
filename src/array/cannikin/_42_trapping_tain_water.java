@@ -41,4 +41,5 @@ public class _42_trapping_tain_water {
         int res = solution.trap( test_case);
         System.out.println(res);
     }
+
 }

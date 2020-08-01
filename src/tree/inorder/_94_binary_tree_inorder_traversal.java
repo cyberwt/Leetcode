@@ -1,4 +1,4 @@
-package tree;
+package tree.inorder;
 
 
 import utils.TreeNode;

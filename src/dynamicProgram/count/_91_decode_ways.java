@@ -1,0 +1,43 @@
+package dynamicProgram.count;
+
+/**
+ * 巧妙的取两个不同值
+ *
+ * dp[i-1] dp[i-2] 分别在index有效的情况下 对 dp[i] 的影响
+ *
+ *  if(cur>0 ){
+       dp[i] += dp[i-1];
+    }
+
+    if(val>=10 && val <=26){
+       dp[i] = i>=2?dp[i-2]:1;
+    }
+
+
+ *
+ * 7/14/20.
+ */
+public class _91_decode_ways {
+    public int numDecodings(String s) {
+        if(s== null || s.length() == 0){
+            return 0;
+        }
+        int res = 0;
+        int[] dp = new int[s.length()];
+        dp[0] = s.charAt(0) == '0'? 0:1;
+
+        for(int i=1; i<s.length(); i++){
+            int pre = s.charAt(i-1) - '0';
+            int cur = s.charAt(i) - '0';
+            int val = pre*10 + cur;
+            if(val>=10 && val <=26){
+                dp[i] = i>=2?dp[i-2]:1;
+            }
+            if(cur>0 ){
+                dp[i] += dp[i-1];
+            }
+
+        }
+        return dp[s.length()-1];
+    }
+}

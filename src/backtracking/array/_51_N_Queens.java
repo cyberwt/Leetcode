@@ -4,6 +4,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 二刷 7/31 ，看着提醒
+ * 1/ 没完全理解这种构建方法，
+ * 单层循环每一层！
+ * 然后-valid 同层different position
+ * 近出 再放不同的位置
+ *
+ * 2/ 为什么会同线
+ *    x + j == y + i || x + y == i + j || x == i
+ *
+ *    x-i/y-j = 1
+ *    x-i/j-y = 1    由图可知，截距是横为 +-1 的
+ *
+ * 3/ 最后构造construct list:  String s= new String(board[i]) 没写好;
+ *
  * 拿出来，再放回去，但不理解：
  *
  * 动规，递归，backtrack 的区别

@@ -1,7 +1,5 @@
 package string.loop;
 
-import string._20_valid_parentheses;
-
 /**
  *
  * 基础for-loop  <=> while
@@ -33,6 +31,8 @@ public class _58_length_of_last_word {
     public static void main(String[] args) {
         _58_length_of_last_word solution = new _58_length_of_last_word();
         System.out.println(solution.lengthOfLastWord("[]{}"));
+        System.out.println('a' - 'A');
+
     }
 
 }

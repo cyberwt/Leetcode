@@ -1,4 +1,4 @@
-package iterate_recursice;
+package iterate_recursioin;
 
 /**
  * 理解递归 和 迭代各自的精巧之处
