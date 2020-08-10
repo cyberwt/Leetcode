@@ -3,6 +3,20 @@ package backtracking.permutaions;
 import java.util.LinkedList;
 
 /**
+ * S2:
+ *  1.不懂为什么是以 (index-1) 存在的
+ *  画个图
+ *
+ *  只需要求出组数，就知道最高位是多少了。而每组的个数就是 (n-1)!
+ *
+ *  因为 C(1,n) = n!
+ *
+ *  先k-*  k/(n-1) 就可以得到 这个组的 位数
+ *
+ *  得出 更新后的k
+ *
+ * 8/2
+ *
  * 是个数学问题，不断取组合
  *  1.Construct factor[]（就是permutation的根基）and index list
     2. int index = k/factor[i];  得到一堆数，我属于哪个组合

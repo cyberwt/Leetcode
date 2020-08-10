@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 8.2 2S
+ * 1. bug free还查一些
+ * 记住要一直查 if(top > bottom || left>right)
+ *
+ * 2.且是要包含等号的，因为没有loop过的值是不算数，没有iterate过的
+ *
  *
  * 理解在这个Matrix 里，从上到下，从左到右，框住的蛇形走位
  *

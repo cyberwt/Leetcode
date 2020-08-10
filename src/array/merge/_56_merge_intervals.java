@@ -6,6 +6,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
+ *
+ *
+ * 2s:
+ * 1. 二维数组理解的不好 int[] tem = intervals[0];
+ *
+ * 型为 int[n][2] 的一个数组
+ *
+ * 2. comparator 怎么写
+ *
+ * Arrays.sort(intervals, (a1,a2)-> a1[0] - a2[0]);
+ *
+ * 3. 什么意思
+ * res.toArray(new int[0][]);
+ *
+ *
+ *
  * 思考时间多了，但思路更清晰了
  *
  * Error:
