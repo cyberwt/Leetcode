@@ -1,4 +1,4 @@
-package array.twoPinters;
+package array.cannikin;
 
 /**
  *  6/26/20.

@@ -1,4 +1,4 @@
-package dynamicProgram;
+package dynamicProgram.match;
 
 /**
  * M1: iterate整个字符串
@@ -8,6 +8,13 @@ package dynamicProgram;
  * T:O(N) S:O(1)
  *
  * M2: 动态规划
+ * 8/30
+ * dp[][]
+ * 是怎么走的，走一遍 j ---- 安利往下走
+ *
+ * 所以 dp[i][j] = dp[i-1][j]||dp[i][j-1]; 完全成立
+ *
+ * T:O(MN) S:O(MN)
  *
  *
  * 6/29/20.
@@ -52,5 +59,35 @@ public class _44_wildcard_matching {
             p++;
 
         return p == pattern.length();
+    }
+
+    public boolean isMatch2(String s, String p) {
+        if(s == null || p == null){
+            return false;
+        }
+        // ?   *
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m+1][n+1];
+        // inital dp value
+        dp[0][0] = true;
+        for(int i=1; i<n+1; i++){
+            if(p.charAt(i-1) == '*'){
+                dp[0][i] = dp[0][i-1];
+            }
+        }
+
+        for(int i=1; i<m+1; i++){
+            for(int j=1; j<n+1; j++){
+                if(s.charAt(i-1) == p.charAt(j-1) || p.charAt(j-1) == '?'){
+                    dp[i][j] = dp[i-1][j-1];
+                }else if(p.charAt(j-1) == '*'){
+                    // dp[i][j-1] means  '*' represents empty string
+                    // dp[i-1][j] means '*' represents s.charAt(i-1) ??
+                    dp[i][j] = dp[i-1][j]||dp[i][j-1];
+                }
+            }
+        }
+        return dp[m][n];
     }
 }

@@ -1,8 +1,14 @@
-package graph;
+package graph.dfs;
 
 import java.util.*;
 
 /**
+ * 9/26
+ * 没理解为什么dfs 什么时候会返回值，什么时候直接返空
+ * >这里返回
+ *
+ * 没理解为什么bfs, 是每层怎么看，把neighbor 铺平
+ *
  * DFS vs BFS
  *
  * 理解好两种算法的基础

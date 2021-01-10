@@ -1,6 +1,8 @@
 package array.twoPinters;
 
 /**
+ *  用后针，实际走，前针旨在有效的时候更新
+ *
  *  Two pointers: ++pre 和 cur 的兑换
  *
  *  S: O(1) T:O(N)

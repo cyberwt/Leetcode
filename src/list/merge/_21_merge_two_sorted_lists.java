@@ -7,7 +7,7 @@ import utils.ListNode;
  * LinkedList Merge:
  * 1) dummy node helps
  * 2) can't point null 值
- * 所以a.在while循环上判断  or b.在循环里不断判断
+ * 所以a.在while循环上判断 用& 更清晰 or b.在循环里不断判断
  *
  * T:O(N) S:O(1)
  *

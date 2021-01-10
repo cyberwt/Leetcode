@@ -3,6 +3,18 @@ package array.count;
 import java.util.Arrays;
 
 /**
+ * 9.29
+ * 根本不懂了m1, m2，写的是什么
+ *
+ * M1:
+ * 可能还会让人理解，往后一直拍
+ *
+ * M3:
+ * 积极switch 大法，转到该变的arr上
+ *
+ *
+ *
+ *
  * M1: 直接两遍loop, 记下 zero_count one_count
  *
  * M2: Dp 初始附dummy值，然后不断跟上新增的值，有其对应的count
@@ -34,5 +46,25 @@ public class _75_sort_colors {
             System.out.println(Arrays.toString(nums));
 
         }
+    }
+    public void sortColors2(int[] nums) {
+        if(nums == null || nums.length ==0){
+            return;
+        }
+        int left =0, right = nums.length-1;
+        for(int i=0; i<= right; i++){
+            if(nums[i] == 0){
+                swap(nums,i,left++);
+            }else if(nums[i] == 2){
+                swap(nums,i--,right--);
+            }
+        }
+        return;
+    }
+
+    public void swap(int[] nums, int i,int j){
+        int tem = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tem;
     }
 }

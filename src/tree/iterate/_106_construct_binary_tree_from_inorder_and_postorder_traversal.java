@@ -2,10 +2,15 @@ package tree.iterate;
 
 import utils.TreeNode;
 
-import java.util.HashMap;
-
 /**
+ * 9.27
+ * 想要对root进行什么操作，怎样操作，
+ * 那我就不断在其中
  *
+ *
+ *
+ *
+ * -- 用一个hashmap, 扔进去，就不用每次都扫index了
  * iterate的时候注意，不是一直都直通答案
  *
  * 质疑在过程中，有把谁filter掉
@@ -14,25 +19,25 @@ import java.util.HashMap;
  */
 public class _106_construct_binary_tree_from_inorder_and_postorder_traversal {
     public TreeNode buildTree(int[] inorder, int[] postorder) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < inorder.length; i++) {
-            map.put(inorder[i], i);
-        }
-        return buildTreeHelper(inorder, 0, inorder.length, postorder, 0, postorder.length, map);
+        // Corner Case
+        if(inorder == null || postorder == null || inorder.length != postorder.length) return null;
+        TreeNode node = build(inorder,0,inorder.length-1,postorder,0,postorder.length-1);
+        return node;
     }
 
-    private TreeNode buildTreeHelper(int[] inorder, int i_start, int i_end, int[] postorder, int p_start, int p_end,
-                                     HashMap<Integer, Integer> map) {
-        if (p_start == p_end) {
-            return null;
+    public TreeNode build(int[] inorder, int inStart, int endStart, int[] postorder, int postStart, int postEnd){
+        if(inStart>endStart || postStart>postEnd) return null;
+        TreeNode root = new TreeNode(postorder[postEnd]);
+        int index =0;
+        for(int i=inStart; i<=endStart; i++){
+            if(inorder[i] == postorder[postEnd]){
+                index = i;
+                break;
+            }
         }
-        int root_val = postorder[p_end - 1];
-        TreeNode root = new TreeNode(root_val);
-        int i_root_index = map.get(root_val);
-        int leftNum = i_root_index - i_start;
-        root.left = buildTreeHelper(inorder, i_start, i_root_index, postorder, p_start, p_start + leftNum, map);
-        root.right = buildTreeHelper(inorder, i_root_index + 1, i_end, postorder, p_start + leftNum, p_end - 1,
-                map);
+        int len = index-inStart;
+        root.left = build(inorder,inStart,index-1, postorder,postStart,postStart+len-1);
+        root.right = build(inorder,index+1, endStart,postorder,postStart+len,postEnd-1);
         return root;
     }
 }

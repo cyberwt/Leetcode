@@ -1,6 +1,14 @@
 package dynamicProgram.count;
 
 /**
+ * > 9.7
+ * Error:
+ * 1. 每一次位运算 都要取'0'
+ * 2.没理解每次为是么是
+ *
+ * dp[i] += dp[i-1] 之后不在有运算了
+ *
+ *
  * 巧妙的取两个不同值
  *
  * dp[i-1] dp[i-2] 分别在index有效的情况下 对 dp[i] 的影响

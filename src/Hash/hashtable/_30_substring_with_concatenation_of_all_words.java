@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Two hashmap
  *
- * One act as template, another used it to compare
+ * One act as Template.md, another used it to compare
  *
  * 每次是取i开始的， words 为变量的改变
  *

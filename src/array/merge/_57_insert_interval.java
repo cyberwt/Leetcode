@@ -36,7 +36,9 @@ public class _57_insert_interval {
             res.add(intervals[index]);
             index++;
         }
-
+        // 隐藏条件是  intervals[index][1] >= newInterval[0]
+        // newInterval 可以更新，可以不更新，更新的条件是二串在下面表达式里有交集
+        // 没更新就直接加也🉑️
         while(index<len && intervals[index][0]<= newInterval[1]){
             newInterval[0] = Math.min(newInterval[0], intervals[index][0]);
             newInterval[1] = Math.max(newInterval[1],intervals[index][1]);

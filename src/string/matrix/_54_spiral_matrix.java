@@ -4,6 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 9.6 3s
+ * 1. 怎么确定while的条件，
+ * 走一下例子，就想清楚了 while(left <= right && top<= bottom)
+ * if 则是补集 因为要使for 里面的条件成立
+ *
+ * 2. for里面
+ * ++ => i<=
+ * -- => i>=
+ *
+ * 3. m => row top,bottom
+ *
+ *    n => column left,right
+ *
  * 8.2 2S
  * 1. bug free还查一些
  * 记住要一直查 if(top > bottom || left>right)

@@ -3,6 +3,10 @@ package list;
 import utils.ListNode;
 
 /**
+ * 9.20
+ * 别用错 if else 是有舞蹈想的，因为必须钻进去一个:
+ * 导致整个流局
+ *
  *  while(fast!=null && fast.next != null) means can be the last (null) or the node before it
  *
  *  ? 思考一下，为什么你第一次解错了

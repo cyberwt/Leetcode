@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Queue;
 
 /**
+ * 9.7
+ * > size is a fixed number for the queue, don't update
+ *
+ * > update flag after a loop
+ *
+ * > is List<List<Integer>> res = new LinkedList<LinkedList<Integer>>(); invalid
  *
  * Same as level order 1. bfs 2. iterate
  * 7/22/20.

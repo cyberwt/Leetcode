@@ -16,6 +16,10 @@ import java.util.Queue;
  * - 确定是用queue 还是stack   queue.offer  && queue.poll
  * - 定好number 后
  * while + for 向里前进
+ * - 再判断一个额外条件:
+ * if(list.size()!=0){
+      res.add(list);
+   }
  *
  *
  * 7/20/20.

@@ -1,6 +1,14 @@
 package string.math;
 
 /**
+ * 8/28
+ * >用sb,然后reverse一下,更简洁
+ * > 直接sum 相加 & 一个if判断能不能 (b.charAt(j--))
+ * > flag 要在sum做完之后才能变:)
+ *
+ * while()用对了
+ *
+ *
  * 算数：
  * 进位，求余， 勿忘最高位
  *

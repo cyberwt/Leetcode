@@ -5,6 +5,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * while(left<right && left > i+1 && nums[left] == nums[left-1])
+ * 探讨的是上一个值，已经是一个标准了，被判断过了，我现在再追查一遍，就没必要了
+ *
+ *
  *  1. Jump over the next value  if(i != 0 && nums[i-1] == nums[i]) continue;
  *  2. Arrays.sort()
  *  3. while(left<right && left > i+1 && nums[left] == nums[left-1]) left++;

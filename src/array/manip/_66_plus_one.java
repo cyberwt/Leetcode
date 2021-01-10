@@ -3,7 +3,7 @@ package array.manip;
 import java.util.Arrays;
 
 /**
- * 直接放到for循环里，规范计算，然后再跳出出
+ * 直接放到for循环里,进位,规范计算，然后再跳出出
  *
  * 得到不符合条件的情况
  *

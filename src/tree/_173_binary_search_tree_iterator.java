@@ -6,9 +6,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * 8.16
+ * 又不会做了，是一个recursive找答案的过程
+ *
  *
  * 二叉搜寻树的中序遍历是升序序列 -> 根据此性质，实现，遍历
- *
  *
  * M1: Queue iteration
  *

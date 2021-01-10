@@ -6,6 +6,7 @@ import java.util.Stack;
  *
  * 一个典型栈结构的理解，用if 选项处理不同情况
  *
+ * 五种情况 '+' '-' '*' '/' 'Integer.parseInt()'
  *
  * 7/17/20.
  */

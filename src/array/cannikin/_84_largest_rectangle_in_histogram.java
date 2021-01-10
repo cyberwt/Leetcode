@@ -3,6 +3,7 @@ package array.cannikin;
 import java.util.Stack;
 
 /**
+ * 想到一个点，是此柱必须被囊括，不必取比他低的点，因为比他低的点的计算，其他小柱会被默认取到
  *
  * M1: Brute force
  * T:O(N^2) S:O(1)
@@ -97,6 +98,11 @@ public class _84_largest_rectangle_in_histogram {
         }
         return maxArea;
     }
+    // 这道题注意：
+    // 去的是比当前位置小的第一个离最左，第一个里最右， 所以这两个值都不是真正的值
+    // 且构建数组的时候
+    // minLeft[0] = -1;
+    // minRight[len-1] = len
 
     public int largestRectangleArea4(int[] heights) {
         if (heights.length == 0) {

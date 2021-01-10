@@ -1,6 +1,14 @@
 package binarySearch.math;
 
 /**
+ * 9.9
+ * recursive way也很巧妙，
+ * ! 前提是N 要先变成 long型，转化清楚
+ *
+ * Math.toIntExact() 转换为int
+ *
+ *
+ *
  * Binary Search
  *
  * CC:
@@ -31,6 +39,18 @@ public class _50_pow_x_n {
             current_product = current_product * current_product;
         }
         return ans;
+    }
+
+    public double myPow2(double x, int n) {
+        if(x == 0) return 0;
+        if(n == 0) return 1;
+        Long N = (long)n;
+        if(n < 0){
+            x = 1/x;
+            N = -N;
+        }
+
+        return (N%2==0) ? myPow(x*x,Math.toIntExact(N/2)) : x* myPow(x*x,Math.toIntExact(N/2));
     }
 
     public static void main(String[] args) {

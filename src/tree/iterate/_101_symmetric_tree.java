@@ -5,6 +5,11 @@ import utils.TreeNode;
 import java.util.Stack;
 
 /**
+ * 8.14
+ *
+ * 完全不记得，要两个两个去比，才是镜像的效果-- 所以 ！不是level order traversal,
+ * 每次只弹出两个值
+ * 看完题解， 要想清楚怎么 recursive & iterative 都生效
  *
  * M1: Recursive
  *

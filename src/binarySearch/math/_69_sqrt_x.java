@@ -2,6 +2,11 @@ package binarySearch.math;
 
 /**
  *
+ * 9/9
+ * > 为什么是 start = mid+1, end = mid-1
+ * 把两面都移进去，然后不会越界, 两面都往里塞，是最安全的么
+ *
+ *
  * 1.while循环判定清：while(L<=R)
  *
  * 2.防溢出：mid = L+(R-L)/2;

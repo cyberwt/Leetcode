@@ -1,8 +1,19 @@
-package list;
+package list.iterate;
 
 import utils.ListNode;
 
 /**
+ * 9/6
+ *
+ * 怎么写 public class ListNode{}
+ *
+ *
+ * 8/31 二刷
+ * two error:
+ * > Forget Flag as leading value
+ * > flag先变，再变sum
+ *
+ *
  * 按位运算，每一位判断下非空
  *
  * BF: ListNode next = 得是一个 ListNode
@@ -42,4 +53,12 @@ public class _2_add_two_numbers {
         ListNode.print(solution.addTwoNumbers(ListNode.createTestData("[1,2,3]"),
                 ListNode.createTestData("[5,6,7]")      ));
     }
+
+//    public class ListNode{
+//        int val;
+//        ListNode next;
+//        ListNode(){};
+//        ListNode(int val){this.val = val;};
+//        ListNode(int val, ListNode next){this.val = val; this.next= next;};
+//    }
 }

@@ -1,7 +1,18 @@
 package array.slidingWindow;
 
 /**
- * Created by weitong on 7/10/20.
+ *
+ * 9/30 Sliding Widow
+ * 一边往里面加数，一边右面缩紧区间
+ *
+ * 注意：
+ * > 先动指针index，还是利用index先操作:  先操作，再动指针
+ *   count -= nums[left];
+     left++;
+ * > 如果我给了起始值一个 Integer.MAX_VALUE, 那么最后返回时，我要查看他有被赋新值么
+ *
+ *
+ * 7/10/20.
  */
 public class _209_minimum_size_subarray_sum {
     public int minSubArrayLen(int s, int[] nums) {

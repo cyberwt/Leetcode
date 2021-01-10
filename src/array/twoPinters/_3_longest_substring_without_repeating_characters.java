@@ -3,6 +3,13 @@ package array.twoPinters;
 import java.util.HashMap;
 
 /**
+ * 8/31
+ * 1。 重刷，竟然觉得hashmap是错的解
+ * 所以不要背题，每道题都以一个标准思路，像第一次爱那样
+ * 2。优化，不一定是算法上的改变，code 逻辑本身可以优化么
+ *
+ *
+ *
  * 本来想Set or new char[26] mark index -
  *
  * 其实行的！，

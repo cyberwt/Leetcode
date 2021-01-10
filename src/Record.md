@@ -94,3 +94,50 @@ new:
 
 N:130
 O:
+
+
+---- 8.13
+重写 156 Iterative的解法 xxx! 不懂，看视频
+
+写了156,157,158.159
+
+---- 8.25
+490 the maze
+
+原来hashset是很慢的，导致超时了，但方法应该没问题
+
+
+---- 8.26
+铁杵磨成针:
+753. Cracking the Safe 
+但为什么一定有backtrack去帮他剪枝
+
+
+1110. Delete Nodes And Return Forest
+什么时候往上面加node, 减node
+
+679. 24_Game
+ 构建有序数组
+
+---- 8.27
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

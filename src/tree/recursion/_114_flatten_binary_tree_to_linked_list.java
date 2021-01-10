@@ -5,6 +5,13 @@ import utils.TreeNode;
 import java.util.Stack;
 
 /**
+ * 9.26
+ * M1: 我就要flat 我这个node, flat左,然后flat右，然后左右连到一起去，左清空,右继续慢慢移
+ *
+ *
+ * M2: 我一个一个node,把我当前的关系处理好，移到右面去
+ *
+ *
  * 怎么理解他扁平化的过程-不断向右推的过程
  * 1. 退出条件
  * 2. 不断向外递归
