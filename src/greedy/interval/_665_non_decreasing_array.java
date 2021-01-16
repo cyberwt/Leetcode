@@ -4,6 +4,9 @@ package greedy.interval;
  * 判断每一个的差距
  *
  * 10/2/20.
+ *
+ * 考虑的是> 前2个数的关系
+ *
  */
 public class _665_non_decreasing_array {
     public boolean checkPossibility(int[] nums) {

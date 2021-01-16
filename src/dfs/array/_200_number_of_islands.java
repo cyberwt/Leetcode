@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * 1.12.21
+ * > bfs 其实并非要在level上做文章了， 直接类似与dfs, 放进queue里想当于过了一层
+ *
+ *
+ *
+ *
  * 10.25
  * 就是dfs,bfs的基础模版
  *

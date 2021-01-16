@@ -7,6 +7,12 @@ import java.util.List;
 import java.util.Queue;
 
 /**
+ *
+ * 1/13/21
+ *
+ * 重新理解dfs, bfs的不同
+ *
+ * ----
  * 细节处注意：
  * > CC: if root == null
  *
@@ -48,5 +54,29 @@ public class _199_binary_tree_right_side_view {
             }
         }
         return list;
+    }
+
+    public List<Integer> rightSideView2(TreeNode root) {
+        List<Integer> list = new LinkedList<Integer>();
+        if(root == null) return list;
+
+        dfs(root,list,0);
+        return list;
+    }
+
+    public void dfs(TreeNode node, List<Integer> list, int level){
+        if(node == null){
+            return ;
+        }
+        // 1. what's in here
+        // 第一次 loop到每个level的 边界点
+
+        if(level == list.size()){
+            list.add(node.val);
+        }
+        // 2. why right first not left
+        // need to see the right face value first
+        dfs(node.right, list, level+1);
+        dfs(node.left, list, level+1);
     }
 }

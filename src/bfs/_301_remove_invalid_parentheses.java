@@ -3,8 +3,14 @@ package bfs;
 import java.util.*;
 
 /**
+ * BFS: How to generate/(go to) next level
+ *
+ *
+ * 1/13/21
+ *
  * M1: BFS
  * BFS用了 queue 和 hashset 去看到底有没有 被visited
+ *
  *
  * M2: DFS
  * ! dfs(list, int left_bracket, int right_bracket, int index)

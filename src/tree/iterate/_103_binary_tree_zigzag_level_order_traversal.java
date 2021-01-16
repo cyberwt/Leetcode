@@ -24,11 +24,11 @@ public class _103_binary_tree_zigzag_level_order_traversal {
             return res;
         }
 
-        bfs(root,res,0);
+        dfs(root,res,0);
         return res;
     }
 
-    public void bfs(TreeNode node, List<List<Integer>> res, int level) {
+    public void dfs(TreeNode node, List<List<Integer>> res, int level) {
         if(node == null){
             return;
         }
@@ -42,8 +42,8 @@ public class _103_binary_tree_zigzag_level_order_traversal {
             res.get(level).add(0,node.val);
         }
 
-        bfs(node.left,res,level+1);
-        bfs(node.right,res,level+1);
+        dfs(node.left,res,level+1);
+        dfs(node.right,res,level+1);
     }
 
     public List<List<Integer>> zigzagLevelOrder2(TreeNode root) {

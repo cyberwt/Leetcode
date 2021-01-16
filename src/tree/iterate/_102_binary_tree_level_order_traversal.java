@@ -8,6 +8,22 @@ import java.util.Queue;
 
 /**
  *
+ * 以为dfs不行，但只要能get level & iterate all the nodes, it will work
+ * ! if iterate all the nodes as the final purpose, both bfs & dfs can work-- how tp verift
+ * ~???????
+ *
+ * BFS Error:
+ * T:O(N) S:O()
+ * > avoid defects
+ * forget add root before iterate the queue
+ * > optimize
+ * 1.queue implements as linkedlist
+ * 2.initial list, if size != 0, add to result
+ *
+ * DFS 没错
+ *
+ * 1/16/21
+ *
  * M1:
  * - dfs 一层一层向里加
  * dfs(res, node.left, level+1);

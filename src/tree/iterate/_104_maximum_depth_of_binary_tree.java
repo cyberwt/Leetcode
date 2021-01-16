@@ -6,6 +6,17 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ *
+ * dfs 的优化 T:O(N) S:O(H- logN)
+ * if(node == null) return level-1;
+ * 在上面判断，就不用在下面写 if(node.left != null)
+ *
+ * bfs 不断visit 同层, level++ T:O(N),S:O(N)
+ *
+ * 极限递归 f2，不断调用自身
+ *
+ * 1/16/21
+ *
  * M1
  * 简单的dfs 向下搜索，代码可以更简洁！
  *
