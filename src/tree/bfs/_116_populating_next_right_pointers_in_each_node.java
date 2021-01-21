@@ -4,8 +4,19 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ *  M1
+ *  E:
+ *  > 从右向左，就iterate node.right first， 并且还是要判断 if(node.right == null)
+ *  > 其实不用先准备pre, 因为，第一个 if(i==0) continue 就行
  *
+ *  M2
+ *  dfs 太巧妙
+ *  借用完全二叉树
  *
+ *  dfs(node.left, node.right)
+ *  dfs(node.right, node.next == null ? null : node.next.left)
+ *
+ * --- based on quetsion, 117 is exactly the same
  *
  * 1/16/21
  *

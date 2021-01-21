@@ -1,12 +1,22 @@
 package backtracking.matrix;
 
 /**
+ * M1:
+ * 1.跟dfs的关系是什么
+ * 多了回溯的步骤
+ * check[x][y] = true;
+   if(dfs(board,check,word,index+1,x+1,y) || dfs(board,check,word,index+1,x-1,y) || dfs(board,check,word,index+1,x,y+1) || dfs(board,check,word,index+1,x,y-1)){
+       return true;
+   }
+   check[x][y] = false;
+ *
+ * M2:
+ *
+ * 1/22/21
  *
  *  每一个格子里的每一个数，我都会做 dfs, 并且用额外空间 boolean[][] 去检测到底有没有被visited
  *
  *  定义好，每一个溢出条件
- *
- *
  *  M2: bit的优化
  *  直接
  *

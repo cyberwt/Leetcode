@@ -1,8 +1,21 @@
 package dfs.array;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 /**
+ *
+ * 理解rolling - stop 的意义
+ *
+ * while(x+pos[i][0]>= 0 && x+pos[i][0]<m && y+pos[i][1]>=0 && y+pos[i][1]<n && maze[newX][newY] != '1' ){
+ *     x += pos[i][0];
+ *     y += pos[i][1];
+ * }
+ *
+ * then develop dfs & bfs
+ *
+ * 1/18/21
+ *
  * M1: DFS
  *
  * 开始的思路是loop到这个位置就行，+ hashset
@@ -79,37 +92,34 @@ public class _490_the_maze {
         return false;
     }
 
-    class Point {
-        int x,y;
-        public Point(int _x, int _y) {x=_x;y=_y;}
-    }
-
     public boolean hasPath2(int[][] maze, int[] start, int[] destination) {
-        int m=maze.length, n=maze[0].length;
-        if (start[0]==destination[0] && start[1]==destination[1]) return true;
-        int[][] dir=new int[][] {{-1,0},{0,1},{1,0},{0,-1}};
-        boolean[][] visited=new boolean[m][n];
-        LinkedList<Point> list=new LinkedList<>();
-        visited[start[0]][start[1]]=true;
-        list.offer(new Point(start[0], start[1]));
-        while (!list.isEmpty()) {
-            Point p=list.poll();
-            int x=p.x, y=p.y;
-            for (int i=0;i<4;i++) {
-                int xx=x, yy=y;
-                while (xx>=0 && xx<m && yy>=0 && yy<n && maze[xx][yy]==0) {
-                    xx+=dir[i][0];
-                    yy+=dir[i][1];
+        int m = maze.length;
+        int n = maze[0].length;
+        Queue<int[]> queue = new LinkedList<>();
+        boolean[][] visited = new boolean[m][n];
+        queue.offer(start);
+        while (!queue.isEmpty()) {
+            int[] cur = queue.poll();
+            if (cur[0] == destination[0] && cur[1] == destination[1]) {
+                return true;
+            }
+            int[][] move = new int[][] {{-1, 0}, {0, -1}, {0, 1}, {1, 0}};
+            for (int[] mo : move) {
+                int x = cur[0], y = cur[1];
+                while (x >= 0 && x < m && y >= 0 && y < n && maze[x][y] == 0) {
+                    x += mo[0];
+                    y += mo[1];
                 }
-                xx-=dir[i][0];
-                yy-=dir[i][1];
-                if (visited[xx][yy]) continue;
-                visited[xx][yy]=true;
-                if (xx==destination[0] && yy==destination[1]) return true;
-                list.offer(new Point(xx, yy));
+                // Back to validate point.
+                x -= mo[0];
+                y -= mo[1];
+                // Adding new start point.
+                if(!visited[x][y]){
+                    visited[x][y] = true;
+                    queue.offer(new int[] {x, y});
+                }
             }
         }
         return false;
-
     }
 }

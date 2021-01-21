@@ -1,6 +1,17 @@
 package bfs;
 
 /**
+ *
+ * continue the search
+ *
+ * if(XNew>=0 && XNew < m && YNew >=0 && YNew < n && !visited[XNew][YNew] && grid[XNew][YNew] == 0){
+      queue.add(new int[]{XNew, YNew});
+      visited[XNew][YNew] = true;
+   }
+ *
+ *
+ * 1/17/21
+ *
  * 典型的 bfs, 建queue，标记
  *
  * 在结束完，本层(this width)的操作之后，再在 res+1
@@ -41,6 +52,7 @@ public class _1091_shortest_path_in_binary_matrix {
                 for(int j=0; j<8; j++){
                     int XNew = xPos + dir[j][0];
                     int YNew = yPos + dir[j][1];
+
                     if(XNew>=0 && XNew < m && YNew >=0 && YNew < n && !visited[XNew][YNew] && grid[XNew][YNew] == 0){
                         queue.add(new int[]{XNew, YNew});
                         visited[XNew][YNew] = true;

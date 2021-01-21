@@ -4,6 +4,18 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ *
+ * dfs
+ * recursive 的方法，自己优化一下，需不需要visited[i][j], 肯定是更快的
+ *
+ * bfs
+ * don't need a point class, give a queue.add(new int[]{x,y})
+ * still use a queue, point is: do I need a visited[][] -- no.
+ *
+ * I've already transfer the point value from 'O' to 'B', will not replace this value
+ *
+ * 1/20/21
+ *
  * dfs
  * 其实有两种，递归，非递归要continue
  * 注意的是，在写非递归的时候，我们每次查看 stack 顶，但是并不出 stack，直到这个位置上下左右都搜索不到的时候出 Stack。
@@ -34,7 +46,7 @@ import java.util.Queue;
  * 8/4/20.
  */
 public class _130_surrounded_regions {
-    public void solve(char[][] board) {
+    public void solve2(char[][] board) {
         if(board == null || board.length <=2){
             return;
         }
@@ -81,46 +93,47 @@ public class _130_surrounded_regions {
     }
 
     // bfs
-    public class Pos{
+    class Point{
         int i;
         int j;
-        Pos(int i, int j) {
+        Point(int i, int j) {
             this.i = i;
             this.j = j;
         }
     }
 
-    public void bfs(char[][] board, int i, int j) {
-        Queue<Pos> queue = new LinkedList<>();
-        queue.add(new Pos(i, j));
-        board[i][j] = '#';
-        while (!queue.isEmpty()) {
-            Pos current = queue.poll();
-            // 上
-            if (current.i - 1 >= 0
-                    && board[current.i - 1][current.j] == 'O') {
-                queue.add(new Pos(current.i - 1, current.j));
-                board[current.i - 1][current.j] = '#';
-                // 没有continue.
+    public  void solve(char[][] board) {
+        if (board == null || board.length == 0)
+            return;
+        int rows = board.length, columns = board[0].length;
+        int[][] direction = { { -1, 0 }, { 1, 0 }, { 0, 1 }, { 0, -1 } };
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++) {
+                if ((i == 0 || i == rows - 1 || j == 0 || j == columns - 1) && board[i][j] == 'O') {
+                    // here is bfs key
+                    Queue<Point> queue = new LinkedList<>();
+                    board[i][j] = 'B';
+                    queue.offer(new Point(i, j));
+                    while (!queue.isEmpty()) {
+                        Point point = queue.poll();
+                        for (int k = 0; k < 4; k++) {
+                            int x = direction[k][0] + point.i;
+                            int y = direction[k][1] + point.j;
+                            if (x >= 0 && x < rows && y >= 0 && y < columns && board[x][y] == 'O') {
+                                board[x][y] = 'B';
+                                queue.offer(new Point(x, y));
+                            }
+                        }
+                    }
+                }
             }
-            // 下
-            if (current.i + 1 <= board.length - 1
-                    && board[current.i + 1][current.j] == 'O') {
-                queue.add(new Pos(current.i + 1, current.j));
-                board[current.i + 1][current.j] = '#';
+        for (int i = 0; i < rows; i++)
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j] == 'B')
+                    board[i][j] = 'O';
+                else if (board[i][j] == 'O')
+                    board[i][j] = 'X';
             }
-            // 左
-            if (current.j - 1 >= 0
-                    && board[current.i][current.j - 1] == 'O') {
-                queue.add(new Pos(current.i, current.j - 1));
-                board[current.i][current.j - 1] = '#';
-            }
-            // 右
-            if (current.j + 1 <= board[0].length - 1
-                    && board[current.i][current.j + 1] == 'O') {
-                queue.add(new Pos(current.i, current.j + 1));
-                board[current.i][current.j + 1] = '#';
-            }
-        }
+
     }
 }

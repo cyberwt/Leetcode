@@ -3,6 +3,40 @@ package bfs;
 import java.util.*;
 
 /**
+ *
+ * BFS:
+ * E:
+ *
+ * ！我要先在 for循环外 先判断isValid(cur) ---
+ * 再做他的子字符串(tem)， 否则，会漏掉cur 的情况
+ *
+ *
+
+ On the first level, there's only one string which is the input string s,
+ let's say the length of it is n, to check whether it's valid, we need O(n) time.
+ On the second level, we remove one ( or ) from the first level,
+ so there are C(n, n-1) new strings, each of them has n-1 characters, and for each string,
+ we need to check whether it's valid or not,
+ thus the total time complexity on this level is (n-1) x C(n, n-1).
+ Come to the third level, total time complexity is (n-2) x C(n, n-2),
+ so on and so forth...
+
+  Finally we have this formula:
+
+  T(n) = n x C(n, n) + (n-1) x C(n, n-1) + ... + 1 x C(n, 1) = n x 2^(n-1)
+
+ * DFS:
+ * 用了两种方式avoid stackoverflow
+ * > if(i!=start && s.charAt(i-1) == s.charAt(i)) continue;
+ *
+ * > if(left > 0 && s.charAt(i) == '(')
+ *
+ *
+ * T:O(nm) where m is the total "number of recursive calls" or "nodes in the search tree".
+ * Then you need to relate m to n in the worst case.
+ *
+ * 1/17/21
+ *
  * BFS: How to generate/(go to) next level
  *
  *
@@ -24,41 +58,29 @@ public class _301_remove_invalid_parentheses {
     public List<String> removeInvalidParentheses(String s) {
         List<String> res = new ArrayList<>();
         if (s == null) return res;
-        Set<String> visited = new HashSet<>();
-        Queue<String> queue = new LinkedList<>();
-
-        // initialize
+        Set<String> set = new HashSet<String>();
+        Queue<String> queue = new LinkedList<String>();
         queue.add(s);
-        visited.add(s);
-        //flag要在loop 外，一旦是变了
-        boolean found = false;
-
-        while (!queue.isEmpty()) {
-            s = queue.poll();
-
-            if (isValid(s)) {
-                // found an answer, add to the result
-                res.add(s);
-                found = true;
-            }
-
-            if (found) continue;
-
-            // generate all possible states
-            for (int i = 0; i < s.length(); i++) {
-                // we only try to remove left or right paren
-                if (s.charAt(i) != '(' && s.charAt(i) != ')') continue;
-
-                String t = s.substring(0, i) + s.substring(i + 1);
-
-                if (!visited.contains(t)) {
-                    // for each state, if it's not visited, add it to the queue
-                    queue.add(t);
-                    visited.add(t);
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            if(res.size()!=0) return res;
+            for(int i=0; i<size;i++){
+                String cur = queue.poll();
+                if(isValid(cur)){
+                    res.add(cur);
+                }
+                for(int j=0; j<cur.length(); j++){
+                    if(cur.charAt(j) != '(' && cur.charAt(j) != ')'){
+                        continue;
+                    }
+                    String tem = cur.substring(0,j)+cur.substring(j+1);
+                    if(!set.contains(tem)){
+                        set.add(tem);
+                        queue.add(tem);
+                    }
                 }
             }
         }
-
         return res;
     }
 

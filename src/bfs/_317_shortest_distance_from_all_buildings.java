@@ -4,6 +4,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ *
+ * 大致知道怎么做这类题了，
+ * E3:
+ * > grid[i][j] = 1 not = '1' 看清输入数据的类型
+ * > boolean[][] visited need to be initialized for bfs every time, from house,
+ *   they're unique calculation and shouldn't be shared
+ * > forget queue.add(new int[]{xNew, yNew});
+ * > return 什么要搞清楚
+ *   return res== Integer.MAX_VALUE ? -1:res;
+ *
+ * T:O(m^2n^2) ->O(number of 1)O(number of 0) ~ O(m^2n^2)
+ * S:O(MN) - queue.depth
+ *
+ * 1/17/21
+ *
  * 1/13/21
  *
  * 怎么想出来的：
