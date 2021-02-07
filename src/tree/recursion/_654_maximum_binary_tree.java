@@ -3,6 +3,11 @@ package tree.recursion;
 import utils.TreeNode;
 
 /**
+ *
+ *
+ *
+ * 2/7/21
+ *
  * 先不写代码，想想思路
  * find max in arr, then find next max 在左arr, find next max in 右arr, 是一块块如今去的
  *
@@ -34,6 +39,8 @@ public class _654_maximum_binary_tree {
 
     public TreeNode build(int[] nums, int start, int end){
         //设置机制, 让mid安全- 安全的变动left,right 的值
+        if(start > end) return null;
+
         if(start == end){
             return new TreeNode(nums[start]);
         }
@@ -43,12 +50,11 @@ public class _654_maximum_binary_tree {
                 index = i;
             }
         }
-        //伪前序的方法
+        //伪前序遍历
         TreeNode node = new TreeNode(nums[index]);
-        node.left = start==index ? null :build(nums, start,index-1);
-        node.right = end==index ? null: build(nums,index+1,end);
+        node.left = build(nums, start,index-1);
+        node.right = build(nums,index+1,end);
         return node;
-
     }
 
 }
