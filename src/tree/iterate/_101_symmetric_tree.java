@@ -5,6 +5,14 @@ import utils.TreeNode;
 import java.util.Stack;
 
 /**
+ * recursive 时， 构建自函数，不是想当然就拿出 isTrue(node1.left, node1.right)
+ * 而是构建新的结构: isTrue(node1.left, node2.right) && isTrue(node1.right, node2.left)
+ *
+ * how to understand it complexity? - 每个点我都会访问，且构造stack状态，不断弹压
+ *
+ *
+ * 2/1/21
+ *
  * 8.14
  *
  * 完全不记得，要两个两个去比，才是镜像的效果-- 所以 ！不是level order traversal,
@@ -34,17 +42,17 @@ public class _101_symmetric_tree {
             return true;
         }
 
-        return isEqual(root.left, root.right);
+        return isTrue(root.left, root.right);
     }
 
-    public boolean isEqual(TreeNode left, TreeNode right){
-        if(left == null || right == null){
-            return left == right;
+    public boolean isTrue(TreeNode node1, TreeNode node2){
+        if(node1==null && node2 == null){
+            return true;
         }
-        if(left.val != right.val){
+        if(node1 == null || node2 == null || node1.val != node2.val){
             return false;
         }
-        return isEqual(left.left, right.right) && isEqual(left.right, right.left);
+        return isTrue(node1.left, node2.right) && isTrue(node1.right, node2.left);
     }
 
     public boolean isSymmetric2(TreeNode root) {

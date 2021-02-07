@@ -3,7 +3,13 @@ package list;
 import utils.ListNode;
 
 /**
- * Created by weitong on 6/4/20.
+ * M1: iterative
+ * M2:
+ * ! why I need to initialize two values here
+ *
+ * 1/31/21
+ *
+ * 6/4/20.
  */
 public class _24_swap_nodes_in_pairs {
 

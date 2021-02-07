@@ -1,5 +1,7 @@
 package tree.bfs;
 
+import utils.TreeNode;
+
 import java.util.LinkedList;
 import java.util.List;
 

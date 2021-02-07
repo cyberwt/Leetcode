@@ -21,16 +21,9 @@ import utils.TreeNode;
 public class _235_Lowest_Common_Ancestor_of_a_Binary_Search_Tree {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         // how to deal when root is null
-        if(root == null) {return null;}
-        if(root.val < Math.min(p.val, q.val)){
-            return lowestCommonAncestor(root.right, p, q);
-        }
-        else if(root.val > Math.max(p.val, q.val)){
-            return lowestCommonAncestor(root.left, p, q);
-        }
-        else {
-            return root;
-        }
+        if (root.val > p.val && root.val > q.val) return lowestCommonAncestor(root.left, p, q);
+        if (root.val < p.val && root.val < q.val) return lowestCommonAncestor(root.right, p, q);
+        return root;
     }
 
     public TreeNode lowestCommonAncestor2(TreeNode root, TreeNode p, TreeNode q) {

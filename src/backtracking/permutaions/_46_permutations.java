@@ -8,13 +8,17 @@ import java.util.List;
  *
  * 需要理解code到底怎么运行的，Run & check printout
  *
+ *
  * 两个难懂的初始化格式：
  * why can not initialize: ?
  * - List<List<Integer>> res = new LinkedList<LinkedList<Integer>>() works or not
- * why res.add(new LinkedList<>(list)) will work
+ * - no, it will not work
  *
+ * -why res.add(new LinkedList<>(list)) will work
+ * it's reference point value and it's needed to be initialize
  *
- *  T:O(N^n) S:O(1)
+ *  T:O(N!) S:O(1)
+ * 1/23/21
  * 6/9/20.
  */
 public class _46_permutations {

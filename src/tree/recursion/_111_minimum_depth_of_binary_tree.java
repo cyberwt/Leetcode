@@ -7,10 +7,23 @@ import java.util.Queue;
 
 /**
  *
+ * 又忘了,let's look back this week
+ *
+ * BFS fits more better in this situation because:  而且同时规避了 node.left = null but node.right not
+ * if (curNode.left == null && curNode.right == null) {
+      return level;
+    }
+ * With BFS, instead of traversing 501 nodes to figure out the min depth,
+ * you could've just traversed two. Now imagine if the left subtree comprised of tens of thousands of nodes ...
+ *
+ * recursive另一个参数，根本没用上, 因为level 是作为返回值的, 所以不需要穿进去，调用自身就可以了
+ *
+ * 2/1/21
+ *
  * E:
  * > 同样的错误，single line format tree which only has one path
  * [2,null,3,null,4,null,5,null,6]
- * -----> 找到 root 的解释，single node can't be returned as resul
+ * -----> 找到 root 的解释，single node can't be returned as result
  *  * Key point:
  * if a node only has one child -> MUST return the depth of the side with child, i.e. MAX(left, right) + 1
  * if a node has two children on both side -> return min depth of two sides, i.e. MIN(left, right) + 1

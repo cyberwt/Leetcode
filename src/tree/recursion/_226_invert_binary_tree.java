@@ -8,6 +8,11 @@ import java.util.Queue;
 
 /**
  *
+ *
+ * 3种解法重新理解: invertTree 返回的恒是head, 但实际做的事左右子树交换
+ *
+ * 1/31/21
+ *
  *  M1: Single recursive, not scalable
  *  M2: Stack, help --  同 iterate every node, 达到换子node的目的
  *  M3: Queue, help -- 每一个node的子node, 位置都变了，所以level order, itervate 帮助每一个子node换位置

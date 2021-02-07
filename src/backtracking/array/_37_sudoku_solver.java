@@ -1,6 +1,48 @@
 package backtracking.array;
 
 /**
+ *
+ * E:
+ * 1.放 char for(char i = '1')
+ * 2. isValid method 只检查 9 个格子么，不对的，
+ * 应该 for(){
+ *     if(board[i+ 9*(x/9)][y] == val) return false;
+ * }
+ * 3.最大的bug
+ *
+ * 应该 if(isValid()) first then
+ *    put board[i][j] = val , 否则，恒不vaild
+ *
+ * 1/25/21
+ *
+ * 新建boolean helper(board),而非调用旧的
+ * E:
+ * 1. !运用的是这个判定方法：
+ * if(isValid(board, i, j, c)){
+     board[i][j] = c; //Put c for this cell
+      // 是else board[i][j] = '.'  不一定非要转的
+     if(solve(board))
+            return true; //If it's the solution return true
+     else
+     board[i][j] = '.'; //Otherwise go back
+   }
+   2.  return 值也值得关注，
+ 在外层是return false 因为没有变换成
+ 最外层是true,表示真的转换了
+
+ * Complexity:
+ * T:O(9^m)
+ * (m represents the number of blanks to be filled in),
+ * since each blank can have 9 choices
+ *
+ * S:O(1)
+ *
+ *
+ *
+ * 1/24/21
+ *
+ * 理解 验证有效的那三个表达式
+ *
  * Backtrack
  *
  * 如果是[.]， if valid in 3 condtions, valid 变
@@ -46,8 +88,9 @@ public class _37_sudoku_solver {
         for(int i = 0; i < 9; i++) {
             if(board[i][col] != '.' && board[i][col] == c) return false; //check row
             if(board[row][i] != '.' && board[row][i] == c) return false; //check column
-            if(board[3 * (row / 3) + i / 3][ 3 * (col / 3) + i % 3] != '.' &&
-                    board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false; //check 3*3 block
+            // rowIndex: 3*(row/3)   colIndex: 3*(col/3)
+
+            if(board[3 * (row / 3) + i / 3][3 * (col / 3) + i % 3] == c) return false; //check 3*3 block
         }
         return true;
     }

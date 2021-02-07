@@ -3,6 +3,18 @@ package list.reverse;
 import utils.ListNode;
 
 /**
+ * Error:
+ * 1. 没设dummy node
+ *  为什么需要:
+ * a. if m = 1, 不往后做
+ * b. return dummy.next not head!
+ *
+ * 2.循环这儿没写错，但复杂了
+ * a.直接
+ *
+ *
+ * 2/6/21
+ *
  * Iterative:
  * 没做出来的原因，想复杂了，想掏出start->end 然后再放回去， listnode 这么操作并不容易
  *

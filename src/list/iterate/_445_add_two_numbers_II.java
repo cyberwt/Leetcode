@@ -5,6 +5,12 @@ import utils.ListNode;
 import java.util.Stack;
 
 /**
+ * Stack 构建，从最低位开始操作
+ *
+ * 每位依次操作
+ *
+ * 1/31/21
+ *
  * M1:
  * 特殊数据结构，stack 往里面放值，就变成回溯的另一种
  *
@@ -15,44 +21,29 @@ import java.util.Stack;
  */
 public class _445_add_two_numbers_II {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        if(l1 == null || l2 == null){
-            return null;
+        Stack<Integer> l1Stack = buildStack(l1);
+        Stack<Integer> l2Stack = buildStack(l2);
+        ListNode head = new ListNode(-1);
+        int carry = 0;
+        while (!l1Stack.isEmpty() || !l2Stack.isEmpty() || carry != 0) {
+            int x = l1Stack.isEmpty() ? 0 : l1Stack.pop();
+            int y = l2Stack.isEmpty() ? 0 : l2Stack.pop();
+            int sum = x + y + carry;
+            ListNode node = new ListNode(sum % 10);
+            node.next = head.next;
+            head.next = node;
+            carry = sum / 10;
         }
-        ListNode cur = null;
-        Stack<ListNode> stack1 = new Stack<ListNode>();
-        Stack<ListNode> stack2 = new Stack<ListNode>();
-        // can I move the head of original stack
-        while(l1 != null){
-            stack1.push(l1);
-            l1 = l1.next;
-        }
+        return head.next;
+    }
 
-        while(l2 != null){
-            stack2.push(l2);
-            l2 = l2.next;
+    private Stack<Integer> buildStack(ListNode l) {
+        Stack<Integer> stack = new Stack<>();
+        while (l != null) {
+            stack.push(l.val);
+            l = l.next;
         }
-        int flag = 0;
-        while(!stack1.isEmpty() || !stack2.isEmpty()){
-            if (!stack1.isEmpty()){
-                ListNode node1 = stack1.pop();
-                flag += node1.val;
-            }
-
-            if(!stack2.isEmpty()){
-                ListNode node2 = stack2.pop();
-                flag += node2.val;
-            }
-            ListNode node = new ListNode(flag%10);
-            node.next = cur;
-            cur = node;
-            flag = flag/10;
-        }
-        if(flag !=0){
-            ListNode node = new ListNode(1);
-            node.next = cur;
-            cur = node;
-        }
-        return cur;
+        return stack;
     }
 
     int carry = 0;

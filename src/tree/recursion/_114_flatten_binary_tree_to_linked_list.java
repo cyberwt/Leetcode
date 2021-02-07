@@ -5,6 +5,22 @@ import utils.TreeNode;
 import java.util.Stack;
 
 /**
+ * M1:
+ * 理解这个后序遍历的过程，先丢进去，从最底部flat,
+ * 那flat 这个过程:
+ * left 贴到right位置
+ * 那right 怎么办？left'(cur right)不断向下，找到那个适合放pre right的位置
+ *
+ * M3:
+ * 每一个点我们都在 stack 里 iterate 一遍
+ * 每一次是 pop 新值，下一步是用的 peek()
+ *
+ *
+ *
+ * 2.7/21
+ *
+ *
+ *
  * 9.26
  * M1: 我就要flat 我这个node, flat左,然后flat右，然后左右连到一起去，左清空,右继续慢慢移
  *
@@ -37,16 +53,19 @@ public class _114_flatten_binary_tree_to_linked_list {
         flatten(root.left);
         flatten(root.right);
 
-        if(root.left != null){
-            TreeNode rightNode = root.right;
-            root.right = root.left;
-            root.left = null;
-            TreeNode leftLastNode = root;
-            while(leftLastNode.right != null){
-                leftLastNode = leftLastNode.right;
-            }
-            leftLastNode.right = rightNode;
+        //是一个后序遍历么
+        // 左右中
+        flatten(root.left);
+        flatten(root.right);
+        TreeNode left = root.left;
+        TreeNode right = root.right;
+        root.left = null;
+        root.right = left;
+        while(root.right!=null){
+            root = root.right;
         }
+        root.right = right;
+        return;
     }
 
     public void flatten2(TreeNode root) {

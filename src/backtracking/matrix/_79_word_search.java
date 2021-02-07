@@ -1,6 +1,10 @@
 package backtracking.matrix;
 
 /**
+ *
+ * 1/26/ one time pass
+ *
+ *
  * M1:
  * 1.跟dfs的关系是什么
  * 多了回溯的步骤
@@ -11,6 +15,17 @@ package backtracking.matrix;
    check[x][y] = false;
  *
  * M2:
+ * 1.取 board[x][y] ^= 256; 什么意思，直接取反，表示无解？
+ *
+ *
+ * > 复杂度分析
+ *
+ * S: O(min(m*n, L)) where L is the length of the word;
+ * T: O(M * N * 4^L) where M*N is the size of the board and we have 4^L for each cell because of the recursion or O(M * N * 3^L) for a tighter bound
+ *
+ *
+ *
+ *
  *
  * 1/22/21
  *

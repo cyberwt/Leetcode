@@ -1,6 +1,24 @@
 package string.math;
 
 /**
+ *
+ * > int sum = carry;
+ *  // 直接取值，免遭误会嫌疑
+ *
+ *   sb.append(sum%2)
+ *   carry = sum/2
+ *
+ *  > don't forget carry in the end
+ *
+ *  if(carry!= 0){
+       sb.append(carry);
+    }
+ *
+ * > need this calculation: sum += b.charAt(j--) - '0'
+ *
+ *
+ * 小错误太多
+ *
  * 8/28
  * >用sb,然后reverse一下,更简洁
  * > 直接sum 相加 & 一个if判断能不能 (b.charAt(j--))

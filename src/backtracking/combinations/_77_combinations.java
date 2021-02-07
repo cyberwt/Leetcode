@@ -1,11 +1,24 @@
 package backtracking.combinations;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  *
  *
+ * 限制,加入list的个数: i<=n-k+1
+
+
+ for (int i = start; i <= n - k + 1; i++)
+    list.add
+    dfs(res,list,i+1,k-1,n)
+    list.remove
+
+ 理解，这种剪枝，发生的情况
+
+
+ 1/23/21
+
 
  为什么还是不能bug free做出来
  肯定是不断往下放，在不考虑移出
@@ -14,30 +27,24 @@ import java.util.List;
  2. has a start index to help trace, also 往里放的时候，用的是i计数
 
 
-
  */
 public class _77_combinations {
     public List<List<Integer>> combine(int n, int k) {
-        //backtrack
-
-        List<List<Integer>> res = new LinkedList<>();
-        List<Integer> list = new LinkedList<Integer>();
-        helper(list,res,n,k,1);
-        return res;
+        List<List<Integer>> combinations = new ArrayList<>();
+        List<Integer> combineList = new ArrayList<>();
+        backtracking(combineList, combinations, 1, k, n);
+        return combinations;
     }
 
-    public void helper(List<Integer> list,List<List<Integer>> res, int n, int k, int start){
-        if(list.size()==k){
-            res.add(new LinkedList<Integer>(list));
+    private void backtracking(List<Integer> combineList, List<List<Integer>> combinations, int start, int k, final int n) {
+        if (k == 0) {
+            combinations.add(new ArrayList<>(combineList));
             return;
         }
-
-        for(int i=start; i<=n - (k-list.size()) +1; i++){
-            // how can I avoid to add values to the list
-            list.add(i);
-            helper(list, res, n,k,i+1);
-            list.remove(list.size()-1);
+        for (int i = start; i <= n - k + 1; i++) {  // 剪枝
+            combineList.add(i);
+            backtracking(combineList, combinations, i + 1, k - 1, n);
+            combineList.remove(combineList.size() - 1);
         }
-
     }
 }

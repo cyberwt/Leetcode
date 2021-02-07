@@ -4,6 +4,15 @@ import java.util.List;
 
 /**
  * Trick:
+ * Collection.sort(d,(d1,d2)->d1.compareTo(d2))
+ * // faster
+ * if(subStr.length() == res.length() && res.compareTo(subStr)<0){
+       continue;
+    }
+ *
+ * 1/27/21
+ *
+ * Trick:
  * 1. follow 字典排序
  * if(subStr.length() == res.length() && res.compareTo(subStr)<0) 我直接不比了
  *
@@ -14,6 +23,11 @@ import java.util.List;
  * 9/29/20.
  */
 public class _524_longest_wordin_dictionary_through_deleting {
+
+
+
+
+
     public String findLongestWord(String s, List<String> d) {
         String res = "";
         if(s == null || s.length() == 0){

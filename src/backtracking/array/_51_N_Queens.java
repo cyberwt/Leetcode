@@ -4,6 +4,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 半刷
+ * >1. dfs方程
+ * dfs(board, res, colIndex)
+ * 里面写错了，动的是， 跟i没关系，姐姐: dfs(board, res, colIndex+1) 并不是全能公式里的一种
+ * >2. 理解共线方程 点斜式: y2-y1 = k(x2-x1) k=+-1
+ * >复杂度：
+ * Time complexityO(N!). There is N possibilities to put the first queen,
+ * not more than N (N - 2) to put the second one,
+ * not more than N(N - 2)(N - 4) for the third one etc.
+ * In total that results in O(N!) time complexity.
+   Space complexity : O(N^2) to keep an information about diagonals and rows.
+ *
+ *
+ *
+ * 1/24/21 -
+ *
  * 二刷 7/31 ，看着提醒
  * 1/ 没完全理解这种构建方法，
  * 单层循环每一层！
@@ -11,6 +27,8 @@ import java.util.List;
  * 近出 再放不同的位置
  *
  * 2/ 为什么会同线
+ *   点斜式: y2-y1 = k(x2-x1)
+ *
  *    x + j == y + i || x + y == i + j || x == i
  *
  *    x-i/y-j = 1

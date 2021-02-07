@@ -1,8 +1,10 @@
 package array.merge;
 
 /**
- *  9.12
+ *  index的比较, index1,2不合规时  合规时的 4种情况
+ *  T:O(N) S:O(1)
  *
+ *  1/27/21
  *
  *  M1: 反解，分别往后放
  *
@@ -10,23 +12,17 @@ package array.merge;
  */
 public class _88_merge_sorted_array {
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i=m-1;
-        int j=n-1;
-        int k = m+n-1;
-
-        while(j>=0){
-            //! 特殊情况 第一个数组没数时
-            if(i<0){
-                while(j>=0){
-                    nums1[k--] = nums2[j--];
-                }
-                return;
-            }
-
-            if(nums1[i]>= nums2[j]){
-                nums1[k--] = nums1[i--];
-            }else{
-                nums1[k--] = nums2[j--];
+        int index1 = m - 1, index2 = n - 1;
+        int indexMerge = m + n - 1;
+        while (index1 >= 0 || index2 >= 0) {
+            if (index1 < 0) {
+                nums1[indexMerge--] = nums2[index2--];
+            } else if (index2 < 0) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else if (nums1[index1] > nums2[index2]) {
+                nums1[indexMerge--] = nums1[index1--];
+            } else {
+                nums1[indexMerge--] = nums2[index2--];
             }
         }
     }

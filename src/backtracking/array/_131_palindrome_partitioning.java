@@ -5,6 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Error:
+ * 1.start index from 1 - length()
+ *
+ * 2.构建和理解函数是更难的， dfs(res,list,s)
+ * 怎么去理解，不断回切s, 让substring 不断乡下拓展
+ *
+ *
+ * 1/24/21
  *
  *  M1: backtrack
  *
@@ -89,8 +97,5 @@ public class _131_palindrome_partitioning {
             }
         }
     }
-
-
-
 }
 

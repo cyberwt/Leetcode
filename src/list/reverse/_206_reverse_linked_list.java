@@ -3,6 +3,18 @@ package list.reverse;
 import utils.ListNode;
 
 /**
+ *
+ * > iterative 可以无缝理解了
+ * > recursive 的理解
+ * for current node head,
+ * 让原本他的next 指它
+ * 它的next 指空
+ * -- 怎么相处的
+ *
+ *
+ *
+ * 1/31/21
+ *
  * 9.20
  * 理解好 recursive and iterative 的不同
  *

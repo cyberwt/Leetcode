@@ -3,6 +3,14 @@ package array.count;
 import java.util.Arrays;
 
 /**
+ *
+ * 1)left side of array always contains 0s
+ * 2)right side of array always contains 2's.
+    If somehow we are able to maintain the above invariants, after 1 pass, we will end up
+   with a sorted array.
+ *
+ * 1/28/21
+ *
  * 9.29
  * 根本不懂了m1, m2，写的是什么
  *
