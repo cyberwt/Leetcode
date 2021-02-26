@@ -5,6 +5,22 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ *
+ * E:
+ * > 去重的三部:
+ * 第一个i 元素不重: if(i != 0 && nums[i-1] == nums[i]) continue;
+ * left, right 不重:
+ * while(left<right && left > i+1 && nums[left] == nums[left-1]) left++;
+ * while(left<right && right<nums.length-1 && nums[right] == nums[right+1]) right--;
+ *
+ *
+ * > 得到结果后,还得推i++, j-- 的:
+ * res.add(Arrays.asList(nums[left], nums[right], nums[i]));
+ *
+ *
+ *
+ * 2/25/21
+ *
  * while(left<right && left > i+1 && nums[left] == nums[left-1])
  * 探讨的是上一个值，已经是一个标准了，被判断过了，我现在再追查一遍，就没必要了
  *

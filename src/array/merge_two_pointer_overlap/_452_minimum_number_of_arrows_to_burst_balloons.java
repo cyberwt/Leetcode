@@ -1,13 +1,13 @@
-package greedy.interval;
+package array.merge_two_pointer_overlap;
 
 import java.util.Arrays;
 
 /**
  * E:
  * 1. res start from 1
- * 2. 其实这道题，从前，从后排都能解出来的，看你真么理解，我喜欢从前的
+ * 2. 缩小置信区间
  *
- * 10/2/20.
+ * 10/2/20.  2/12/21
  *
  * 2:
  *

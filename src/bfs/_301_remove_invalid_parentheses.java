@@ -3,6 +3,42 @@ package bfs;
 import java.util.*;
 
 /**
+ * 理解两种方法!
+ *
+ *
+ * DFS:
+ *
+ * dfs 第一次尝试，失败
+ * 因为我干算的left, right, which is not right, 为什么要互相撤销呢，
+ * 为的是，达到最小，为什么dfs 停住了呢，因为我已经找到了那个可以互怼的点了
+ *
+ *
+ * 自己做的时候: 3个点没理解好:
+ *  // 1. break 条件，得最小  [set left right difference, not the signle value]
+ *  // 2.怎样 不重不漏:if(i!=index && s.charAt(i) == s.charAt(i-1))
+ *  // 3. startIndex from i not 0, how
+ *
+ *
+ *
+ * 再做一遍：
+ * 不能  dfs(str, i, res, left, --right); // 这样在下一个循环，right的值就不再一样了阿
+ * 而是 dfs(str, i, res, left, right-1);
+ *
+ *
+ * dfs 的时间复杂度，怎么计算:same as O(n*2^n) -- 2^n 种permutation * n means check isValid
+ *
+ * BFS:
+ *
+ * almost there:
+ * > if(!set.contains(tem)) {
+ *     // 2 ops
+ *     set.add(tem);
+ *     queue.add(tem);
+ *   }
+ * > 命名很乱，导致你操作的时候，拿哪个都会容易出错
+ *
+ *
+ * 2/16/21
  *
  * BFS:
  * E:
@@ -44,7 +80,7 @@ import java.util.*;
  *
  * M1: BFS
  * BFS用了 queue 和 hashset 去看到底有没有 被visited
- *
+
  *
  * M2: DFS
  * ! dfs(list, int left_bracket, int right_bracket, int index)

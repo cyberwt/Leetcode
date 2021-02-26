@@ -1,4 +1,4 @@
-package array.merge;
+package array.merge_two_pointer_overlap.scheduling;
 
 import java.util.Arrays;
 

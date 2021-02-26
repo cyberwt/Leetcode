@@ -3,6 +3,12 @@ package array.hashmap;
 import java.util.HashMap;
 
 /**
+ *
+ * Why here is a do-while, because key comes later, when it comes, CHECK it's unique
+ * >
+ * >
+ *
+ *
  * 两个map放 分别以 longUrl 和 shortUrl 作为<key,value> 放进去， 用charSet得到一个random的char
  * 一个base_host: "http://tinyurl.com/"
  *

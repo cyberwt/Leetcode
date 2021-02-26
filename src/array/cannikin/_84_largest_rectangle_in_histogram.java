@@ -15,7 +15,11 @@ import java.util.Stack;
                   getMaxArea(heights, mid + 1, right),
                   getMidArea(heights, left, mid, right);
  *
- * M3: Stack
+ * M3: Stack -- 重新做一遍
+ *
+ * for loop 整个数组
+ *
+ *
  *
  * 7/12/20.
  */
@@ -83,20 +87,20 @@ public class _84_largest_rectangle_in_histogram {
     }
 
     public int largestRectangleArea3(int[] heights) {
-        int len = heights.length;
-        Stack<Integer> s = new Stack<>();
-        int maxArea = 0;
-        for (int i = 0; i <= len; i++){
-            int h = (i == len ? 0 : heights[i]);
-            if (s.isEmpty() || h >= heights[s.peek()]) {
-                s.push(i);
-            } else {
-                int tp = s.pop();
-                maxArea = Math.max(maxArea, heights[tp] * (s.isEmpty() ? i : i - 1 - s.peek()));
-                i--;
+        int ans = 0;
+        Stack<Integer> stack = new Stack<>();
+        for (int i = 0; i <= heights.length; i++) {
+            while (!stack.isEmpty() && (i == heights.length || heights[stack.peek()] > heights[i])) {
+                int prev = stack.pop();
+                if (stack.isEmpty()) {
+                    ans = Math.max(ans, heights[prev] * i);
+                } else {
+                    ans = Math.max(ans, heights[prev] * (i - stack.peek() - 1));
+                }
             }
+            stack.push(i);
         }
-        return maxArea;
+        return ans;
     }
     // 这道题注意：
     // 去的是比当前位置小的第一个离最左，第一个里最右， 所以这两个值都不是真正的值

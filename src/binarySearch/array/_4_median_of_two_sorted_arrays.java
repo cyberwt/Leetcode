@@ -6,6 +6,8 @@ package binarySearch.array;
  *
  * T:O(NlogN) S:O(1)
  *
+ * how to get Kth, leave the other part blank?
+ *
  * 6/22/20.
  */
 public class _4_median_of_two_sorted_arrays {
@@ -27,8 +29,11 @@ public class _4_median_of_two_sorted_arrays {
         if(k2th>=nums2.length){
             return nums1[k1th+kth-1];
         }
+        // Error 1: forget to compare kth == 1
+        // Error 2: 如何理解怎么在 index 上 +1/-1
+        // this number should come from index + kth-1, index 本身就是属于其中要比较值的一元
         if(kth == 1){
-            return Math.min(nums1[k1th],nums2[k2th]);
+            return Math.min(nums1[k1th +1 -1],nums2[k2th]);
         }
 
         int mid1 = k1th+kth/2-1>=nums1.length? Integer.MAX_VALUE:nums1[k1th+kth/2-1];

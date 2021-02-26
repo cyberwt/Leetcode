@@ -1,4 +1,4 @@
-package array.merge;
+package array.merge_two_pointer_overlap;
 
 import array.math._43_multiply_strings;
 
@@ -34,7 +34,7 @@ import java.util.Arrays;
  *
  * Arrays.sort(intervals, (a1,a2)-> a1-a2)
  *
- * res.toArray(new int[0][])
+ * res.toArray(new int[res.size()][])
  *
  *
  * 7/3/20.

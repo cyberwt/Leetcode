@@ -1,8 +1,16 @@
-package array.merge;
+package array.merge_two_pointer_overlap;
 
 import java.util.ArrayList;
 
 /**
+ *
+ * 强行是一个merge的结构, 一定会是往里插，没有考虑之外的最前，最后的情况
+ *
+ * > tips:
+ *
+ * 2/13/21
+ *
+ *
  * 2S  8/2:
  * 1. 其实不用一直设置一个tem 干扰自己
  *  顺其自然就行

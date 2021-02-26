@@ -1,9 +1,22 @@
-package array.merge;
+package array.merge_two_pointer_overlap;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
+ /**
+  * >前提条件
+  * input:
+  * . valid
+  *   . null
+  *   . all positive integers
+  * . invalid
+  * > get intervals
+  * . if(nums[i+1] > nums[i] +1) not enough, if nums[i+1] = nums[i] = Integer.MAX_VALUE wii break the rules
+  *
+  *
+  * 2/13/21
+  *
+  *
  *  比原来的方法好在:
  *  1. 不用判断字符串是否为空
  *

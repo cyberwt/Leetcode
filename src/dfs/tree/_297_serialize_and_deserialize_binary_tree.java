@@ -10,6 +10,13 @@ import java.util.LinkedList;
  *
  * Use Deque! or Deque, both work, deque.remove() the first element of the queue
  *
+ * 按照中序遍历，周末再走一遍
+ *
+ * Error:
+ * 1. 别忘记 spliter跟在每一个string后
+ * 2. 转换公式, Arrays.asList(data.split(splitter))
+ * 3. if str/node == null else 再进入
+ *
  * 8/30/20.
  */
 public class _297_serialize_and_deserialize_binary_tree {

@@ -21,14 +21,14 @@ public class _109_convert_sorted_list_to_binary_search_tree {
 
         ListNode fast = head;
         ListNode slow = head;
-        // do I need two check here? or one is enough
+        // do I need two check here? or one is enough: must two to skip the fast.next.next
         while(fast != tail && fast.next!= tail){
             slow = slow.next;
             fast = fast.next.next;
         }
 
         TreeNode node = new TreeNode(slow.val);
-        node.left = bst(head,slow);
+        node.left = bst(head, slow);
         node.right = bst(slow.next, tail);
         return node;
     }

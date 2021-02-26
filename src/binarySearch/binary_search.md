@@ -65,3 +65,7 @@ l<h, 退出条件:l=h
 2. l, h 和mid的关系， 需不需要+1/-1
 3. 返回值, l or h or -1 
 or return l < n ? letters[l] : letters[0];
+
+
+4. 两种类型，求最左，求最右的边界
+LC 34

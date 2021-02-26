@@ -4,6 +4,10 @@ package system;
 
 
 /*
+
+这直接被drop掉了是么
+== 两个条件来限制: eof, total < n, 由于我只考虑call read4 for once, it's fine to drop it
+
 read4(tem)
 传进被卸船，返回写出几个
 我就做一个大小比较，去看我到底要去放多少，巧妙

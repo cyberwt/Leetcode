@@ -1,4 +1,4 @@
-package array.merge;
+package array.merge_two_pointer_overlap;
 
 /**
  *  index的比较, index1,2不合规时  合规时的 4种情况

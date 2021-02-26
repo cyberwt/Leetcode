@@ -1,6 +1,17 @@
 package recursion;
 
 /**
+ *
+ * > 构建dic的时候 为什么有的需要 "", "ten" 重复出现？
+ *
+ *
+ * > helper 的时候，什么时候，直接取，什么时候直接掉数组？
+ *
+ * > don't forget trim
+ *
+ * 2/17/21
+ *
+ *
  * 1. 构建 dict
  *  belowTen belowTwenty
  *  belowHundred should start with {"", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"}

@@ -50,9 +50,6 @@ public class _114_flatten_binary_tree_to_linked_list {
             return;
         }
 
-        flatten(root.left);
-        flatten(root.right);
-
         //是一个后序遍历么
         // 左右中
         flatten(root.left);
@@ -68,6 +65,8 @@ public class _114_flatten_binary_tree_to_linked_list {
         return;
     }
 
+
+    // 要用一个while来规划变化
     public void flatten2(TreeNode root) {
         while(root != null){
             if(root.left == null){
