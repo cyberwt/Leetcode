@@ -6,6 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ *
+ * iterative much easier to understand
+ *
+ * int tem = res.get(j-1).get(i-1) + res.get(j-1).get(i);
+ *
+ * 3/14/21
+ *
  * 理解 Iterative
  *  vs recursive
  * Error:

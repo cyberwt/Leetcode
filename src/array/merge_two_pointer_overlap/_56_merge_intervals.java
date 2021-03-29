@@ -60,7 +60,7 @@ public class _56_merge_intervals {
                 tem = intervals[i];
             }
         }
-        // ! always to rember last value!!!
+        // ! always to remember last value!!!
         res.add(tem);
 
         return res.toArray(new int[0][]);

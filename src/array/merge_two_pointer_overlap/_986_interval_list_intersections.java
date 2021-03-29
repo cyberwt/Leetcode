@@ -4,6 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *  startMax = Math.max(A[i][0], B[j][0]);
+    endMin = Math.min(A[i][1], B[j][1]);
+ *
+ * Only has one bug this time:
+ * 1.
+ * 在 while(i < A.length && j < B.length) 就break
+ *  因为一个数组，已经到头了，且到头的前提是 endMin >= startMax
+ *  所以不需要用 while(i < A.length && j < B.length) loop 所有值
+ * 2. T:O(math.min(M,N)) S:O(N) as worst
+ *
+ *
+ *
+ * 3/16/21
+ *
  * 思路是没错的，比 startMax, endMax,
  *
  * 但细节写不出来: startMax, endMin meaningful way

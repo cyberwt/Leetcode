@@ -3,6 +3,47 @@ package bfs;
 import java.util.*;
 
 /**
+ *
+ * 理解stack
+ *
+ * 3/20
+ *
+ * bfs 根据自己的解，我想出了优化，在算substring 之前,加一句 if(res.size() == 0)
+ * T:O(N*2^n)
+   S:O(N)
+ *
+ *
+ * 3/16/21
+ *
+ * DFS 设的left, right ,就默认取出他们，会是最优的解
+ *
+ *
+ *
+ *  BFS 可以bug almost free
+ *
+ *  T:O(n*2^n) S:O(1)
+ *  理解为：
+ *  Search space is as a power subset of the original string.
+ *  So it includes all possible substrings from 0 character to N(number of chars in the input string) characters.
+ *  So the possibilities are 2^n.
+ *  (we either pick a character or don't pick it)
+ *  For each subset we check if it is a valid string so it becomes n*(2^n)
+ *
+ *
+ *  21/3/5
+ *
+ *
+ * DFS:
+ * E
+ * >E1: CC 时，确认一下，空字符串 算不算 res
+ * >E2: 因为有其它杂字符串出现，所以 要用if else
+ * >>> left == 0 && right ==0
+ * 整个思想就是，取left, right plus index determination 去决定
+ *
+ *  2/27/21
+ *
+ * - 滑铁卢，很难, 学习方法有问题，都忘了
+ *
  * 理解两种方法!
  *
  *
@@ -105,14 +146,18 @@ public class _301_remove_invalid_parentheses {
                 if(isValid(cur)){
                     res.add(cur);
                 }
-                for(int j=0; j<cur.length(); j++){
-                    if(cur.charAt(j) != '(' && cur.charAt(j) != ')'){
-                        continue;
-                    }
-                    String tem = cur.substring(0,j)+cur.substring(j+1);
-                    if(!set.contains(tem)){
-                        set.add(tem);
-                        queue.add(tem);
+                // This is an optimization
+                if (res.size() == 0) {
+                    for (int j = 0; j < cur.length(); j++) {
+                        if (cur.charAt(j) != '(' && cur.charAt(j) != ')') {
+                            continue;
+                        }
+                        String tem = cur.substring(0, j) + cur.substring(j + 1);
+                        // set 是在这里起作用的，not regular expression
+                        if (!set.contains(tem)) {
+                            set.add(tem);
+                            queue.add(tem);
+                        }
                     }
                 }
             }
@@ -152,14 +197,18 @@ public class _301_remove_invalid_parentheses {
         //递归终止条件，没有要删除的左括号和右括号
         //此时要判断字符串是否合法，合法的话就加入结果中
         if (l == 0 && r == 0) {
-            if (isValid(s)) res.add(s);
+            // M1: 并不保证 此时是可以的: )()
+            if (isValid(s))
+            // M2: 一定存在一种可能，当left == 0 && right == 0 得到要找的 res
             return;
         }
-
+        // M4: why it has a start from index, otherwise it must have unnecessary duplicate, like {""} or {"", ""}
         for (int i = start; i < s.length(); i++) {
+            // M3: 是需要跳过重复字符的
             if (i != start && s.charAt(i) == s.charAt(i - 1)) continue;//连续多个相同的括号只删除第一个
             if (s.charAt(i) == '(' || s.charAt(i) == ')') {
                 String cur = s;
+                // M2: 为什么是要有 index
                 cur = cur.substring(0,i) + cur.substring(i+1);
                 if (r > 0 && s.charAt(i) == ')') dfs(cur, i, l, r - 1, res);
                 else if (l > 0 && s.charAt(i) == '(') dfs(cur, i, l - 1, r, res);

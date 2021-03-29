@@ -12,9 +12,12 @@ import java.util.List;
   * . invalid
   * > get intervals
   * . if(nums[i+1] > nums[i] +1) not enough, if nums[i+1] = nums[i] = Integer.MAX_VALUE wii break the rules
+  * > so when we manipulate the numbers, use:
+  * nums[i+1] > nums[i] +1
+  * nums[i+1] > nums[i] +1
   *
   *
-  * 2/13/21
+  * 2/13/21 3/15
   *
   *
  *  比原来的方法好在:

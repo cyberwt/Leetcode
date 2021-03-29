@@ -4,6 +4,16 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
+ * bfs - 可以直接放在主函数里的，但会变得臃肿
+ * queue.add(new int[]{2,3}); not queue.add({2,3}); // 因为{2,3} 需要一个坐标指针
+ *
+ * 如果不设 boolean[][] visited, S:O(Math,min(m,n)) 因为一层的scan, 不会超过其边界的长度
+ *
+ * undersayn
+ *
+ * 3/19/21
+ *
+ *
  * 1/17/21
  * dfs bug free
  *

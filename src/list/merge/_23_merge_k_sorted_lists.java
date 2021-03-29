@@ -2,10 +2,20 @@ package list.merge;
 
 import utils.ListNode;
 
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ *
+ * 1. complexity: T: O(NlnK) S:O(1)
+   2. Error: if(node == null) skip add to pq
+   3. pq Comparator 理解
+   4. 其他做法 - 理解divide conquer
+ *
+ * N is the total elements, k is the length of each list
+     T:O(Nlgk) S:O(N)
+
+ 3/7/21
+
  * 9/20
  * M1. Divide and Conquer
  * 典型divide conquer 结构
@@ -102,18 +112,7 @@ public class _23_merge_k_sorted_lists {
         if (lists == null || lists.length == 0) {
             return null;
         }
-        PriorityQueue<ListNode> queue = new PriorityQueue<ListNode>(lists.length, new Comparator<ListNode>() {
-            @Override
-            public int compare(ListNode node1, ListNode node2) {
-                if (node1.val < node2.val) {
-                    return -1;
-                } else if (node1.val == node2.val) {
-                    return 0;
-                } else {
-                    return 2;
-                }
-            }
-        });
+        PriorityQueue<ListNode> queue= new PriorityQueue<ListNode>(lists.length, (a,b)-> a.val-b.val);
 
         ListNode dummy = new ListNode(-1);
         ListNode tail = dummy;

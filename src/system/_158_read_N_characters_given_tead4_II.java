@@ -2,6 +2,30 @@ package system;
 
 /**
  *
+ *
+ * 1。里面那个while用的很巧妙 两个限定条件，index<n && buffPtn < buffCnt
+ * 2。能够break掉整个循环的条件: if(buffPtn<4) break;
+ * 3。理解整个归零的思想
+ *    if(buffPtn == buffCnt){
+          buffPtn =0;
+      }
+ *
+ *
+ * 3/16/21
+ *
+ * 怎么想好 buffLeft and buffCnt 的置换关系
+ *
+ * 在这时，替换：
+ * if(buffPtn<4) break;
+   if(buffPtn == buffCnt){
+       buffPtn =0;
+   }
+ *
+ *
+ *
+ * 3/6/2021
+ *
+ * //
  *理解这两个变量的含义
  *
  * 太巧妙了

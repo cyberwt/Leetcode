@@ -1,6 +1,21 @@
 package array.slidingWindow;
 
 /**
+ *
+ *
+ * 内层，可以用while 也可以用if, 你看真正打破的是什么规则
+ *
+ * Error:
+ *
+ *  1. cnt = s.length  not from cnt = 0;
+ *  2. map[pre] -- 之后，判断的是: if( map[pre] >= 0)
+ *  但放在map[pre]之后，就是: if( map[pre] >= 0)
+ *
+ * 3/29/21
+ *
+ *
+ *
+ *
  * 往公式里面套
  * while(right++
  *

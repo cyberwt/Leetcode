@@ -1,6 +1,18 @@
 package dynamicProgram.count;
 
 /**
+ *
+ *
+ * E:
+   巧妙，因为dp[1] 只用加1种可能，且不能依靠dp[i-2]
+
+   dp[i] = i>=2?dp[i-2]:1;
+ *
+ *
+ * T:O(N)  S:O(N)
+ *
+ * 3/23/21
+ *
  * > 9.7
  * Error:
  * 1. 每一次位运算 都要取'0'

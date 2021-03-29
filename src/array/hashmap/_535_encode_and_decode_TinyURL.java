@@ -4,6 +4,14 @@ import java.util.HashMap;
 
 /**
  *
+ * E1: initial 3 variables as indexMap, reIndexMap, base_host
+ * E2: 结果跟原数组无关，用index get the index number
+ * E3: do{} while();, ; 漏写了
+ * E4: hashmap.get   null if this map contains no mapping for the key.
+ *
+ * T:O(1) S:O(1)
+ *
+ *  3/14/21
  * Why here is a do-while, because key comes later, when it comes, CHECK it's unique
  * >
  * >

@@ -1,8 +1,19 @@
-package array.cannikin;
+package array.area;
 
 import java.util.Stack;
 
 /**
+ *
+ * Keep M1: stack
+ *
+ * M5: still reach TLE: but get local maximum index, from this index, gi back
+ * T:O(N^2) S:O(1)
+ *
+ *
+ *
+ * 3/14/21
+ *
+ *
  * 想到一个点，是此柱必须被囊括，不必取比他低的点，因为比他低的点的计算，其他小柱会被默认取到
  *
  * M1: Brute force
@@ -141,5 +152,25 @@ public class _84_largest_rectangle_in_histogram {
             maxArea = Math.max(area, maxArea);
         }
         return maxArea;
+    }
+
+    public int largestRectangleArea5(int[] heights) {
+        if(heights == null || heights.length == 0){
+            return 0;
+        }
+        int res=0;
+        for(int i=0; i<heights.length; i++){
+            // local optimal
+            if (i + 1 < heights.length && heights[i] <= heights[i + 1]) {
+                continue;
+            }
+            int localHeight = heights[i];
+            for(int j=i; j>=0; j--){
+                localHeight = Math.min(heights[j],localHeight );
+                res = Math.max(res, localHeight* (i-j+1));
+            }
+
+        }
+        return res;
     }
 }

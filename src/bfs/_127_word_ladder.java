@@ -3,6 +3,13 @@ package bfs;
 import java.util.*;
 
 /**
+ *
+ *  E1: 这里set是反着的, 取得一个，我移除一个, 不是做重复标记来用了
+ *  E2: 拿出的数要再变回去！  strBuff[j] = tem;
+ *
+ *
+ *  2/27/21
+ *
  * 很巧妙的题
  * 1/ 先把wordList放到 hashset 里
  * 2/ 在每个word 的char 中，换字母，不同的是，let's remove when it's necessary:
@@ -20,34 +27,38 @@ import java.util.*;
  */
 public class _127_word_ladder {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        // 很巧妙的转化成set, 去每一次的loop,观察结果
+        // CC: what should pay attention
+
         Set<String> set = new HashSet<>(wordList);
-        Queue<String> queue = new LinkedList<>();
+        Queue<String> queue = new LinkedList<String>();
+        int level = 0;
         queue.add(beginWord);
-        int level=1;
         while(!queue.isEmpty()){
             int size = queue.size();
             level++;
             for(int i=0; i<size; i++){
-                char[] arr = queue.poll().toCharArray();
-                int len = arr.length;
-                for(int j=0; j<len; j++){
-                    char tem = arr[j];
-                    for(char chr='a'; chr<='z'; chr++){
-                        arr[j] = chr;
-                        String newStr = new String(arr);
-                        if(set.contains(newStr)){
-                            if(newStr.equals(endWord)){
-                                return level;
+                String str = queue.poll();
+                if(str.equals(endWord)){
+                    return level;
+                }
+                char[] strBuff = str.toCharArray();
+                for(int j=0; j<str.length(); j++){
+                    char tem = strBuff[j];
+                    for(char k='a'; k<='z'; k++){
+                        if(strBuff[j]  != k){
+                            strBuff[j] = k;
+                            String curStr = new String(strBuff);
+                            if(set.contains(curStr)){
+                                queue.add(curStr);
+                                set.remove(curStr);
                             }
-                            queue.add(newStr);
-                            set.remove(newStr);
+                            // 还原原数组
+                            strBuff[j] = tem;
                         }
                     }
-                    arr[j] = tem;
                 }
-            }
 
+            }
         }
         return 0;
     }

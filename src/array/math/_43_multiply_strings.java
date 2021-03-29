@@ -13,9 +13,14 @@ package array.math;
  *
  *  取余得低位， 取商相加，得高位
  *
- *  2. 一个special case
+ *  就不用carry 来表示进位了:
+ *  pos[i+j] += sum/10;
+ *  pos[i+j+1] = sum%10;
  *
- *  if(!(sb.length() == 0 && val ==0)) sb.append(val)
+ *  2. 一个special case: 为的是跳过前面的leading zero
+ *
+ *  if(!(sb.length() == 0 && val ==0))
+ *    sb.append(val)
  *
  *  T:O(M*N) S:O(M+N)
  *
@@ -23,7 +28,7 @@ package array.math;
  *  return sb.length() == 0? "0" :sb.toString();
  *
  *
- *  6/15/20.
+ *  6/15/20 => 3/14/21
  */
 public class _43_multiply_strings {
     public String multiply(String num1, String num2) {

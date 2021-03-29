@@ -4,6 +4,16 @@ import java.util.Arrays;
 import java.util.PriorityQueue;
 
 /**
+ *
+ * -- Pq: E1:
+ *
+ * 1. 怎么写
+ * new PriorityQueue<int[]>((a,b)->(b[0]*b[0]+b[1]*b[1] -a[0]*a[0]-a[1]*a[1]));
+ * 2. 返回值 pq.toArray(new int[k][2]);
+ *
+ *
+ *
+ *
  *  Kth 比较
  *  各个方法优劣，复杂度
  *
@@ -26,7 +36,7 @@ public class _973_K_closest_points_to_origin {
      *  > online method
      *  > not efficient as expected
      *
-     * T:O(NlogN), S:O(1)
+     * T:O(NlogK) !, S:O(1)
      */
 
     public int[][] kClosest(int[][] points, int K) {

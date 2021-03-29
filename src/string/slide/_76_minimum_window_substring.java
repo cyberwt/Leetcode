@@ -1,6 +1,12 @@
 package string.slide;
 
 /**
+ * Track back same content:
+ *
+ * https://leetcode.com/problems/minimum-window-substring/discuss/26808/Here-is-a-10-line-template-that-can-solve-most-'substring'-problems
+ *
+ * 3/10/20
+ *
  * 此外，判断当前窗口是否含有所有字母，我们除了可以判断所有字母的次数是否小于等于 0，还可以用一个计数变量 count，把 count 初始化为 t 的长度，然后每次找到一个满足条件的字母，count 就减 1，如果 count 等于了 0，就代表包含了所有字母。这样的话，可以把之前的 match(map) 优化到 O（1）
  *
  *

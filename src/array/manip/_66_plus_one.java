@@ -3,11 +3,12 @@ package array.manip;
 import java.util.Arrays;
 
 /**
- * 直接放到for循环里,进位,规范计算，然后再跳出出
+ *
+ *  在一直没有进位的情况下，renew a new arr, arr[0] = 1,
+ * 3/14
+ * 直接放到for循环里,进位,规范计算，然后再跳出
  *
  * 得到不符合条件的情况
- *
- *
  * 7/5/20.
  */
 public class _66_plus_one {

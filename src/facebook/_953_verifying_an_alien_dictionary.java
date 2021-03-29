@@ -1,6 +1,25 @@
 package facebook;
 
 /**
+ *
+ *
+ *
+ *
+ * >有几个细节，要考虑到:
+ *
+ * helper function:
+ *
+ * 1. >, < 时直接break,return
+ * 2. return len1 <= len2 in the end
+ *
+ *
+ *
+ *
+ *
+ *
+ * 3/20
+ *
+ *
  * > 题很简单
  * 思考:
  * 1. CC and input validation

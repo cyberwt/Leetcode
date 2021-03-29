@@ -4,6 +4,16 @@ import java.util.Arrays;
 
 /**
  *
+ * M0:
+ * Count sort, one loop to record the frequency of 0, 1, 2
+ *
+ * M1:
+ *
+ * Count red++, blue-- when encounter 0,1,2 swap(nums, i, j)
+ *
+ *
+ * 3/13/21
+ *
  * 1)left side of array always contains 0s
  * 2)right side of array always contains 2's.
     If somehow we are able to maintain the above invariants, after 1 pass, we will end up

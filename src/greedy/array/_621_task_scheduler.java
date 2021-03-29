@@ -3,10 +3,17 @@ package greedy.array;
 import java.util.Arrays;
 
 /**
+ *  1. Arrays.sort 反向不好排序
+ *  2. 理解  Math.max(tasks.length;, (arr[25]-1)*(n+1)+base )
+ *  因为tasks.length 是所有操作的基础，在其上做相应改变
+ *
+ *  T:(N) S:O(N)
+ * 3/22/21
+ *
  *
  * M1: Greedy
  *  if we need idle, means all the number already in the arrays,
- *  maximum len =  (count_of_most_frequncy_task -1) *(n-1) + count_of_tasks_with_most_frenquency
+ *  maximum len =  (count_of_most_frequncy_task -1) *(n+1) + count_of_tasks_with_most_frenquency
  *
  *  else no idel need:
  *

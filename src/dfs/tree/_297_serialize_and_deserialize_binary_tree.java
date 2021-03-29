@@ -8,6 +8,17 @@ import java.util.LinkedList;
 
 /**
  *
+ *
+ * >> understand it wrongly, you define the structure not level trancerse , but inorder one
+ *
+ *
+ * in: [1,2,3,null,null,4,5]
+ * like: 1,2,X,X,3,4,X,X,5,X,X,  in the end
+ *
+ * Strategy: nodes.addAll(Arrays.asList(data.split(spliter)));
+ *
+ * 3/21/21
+ *
  * Use Deque! or Deque, both work, deque.remove() the first element of the queue
  *
  * 按照中序遍历，周末再走一遍

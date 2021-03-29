@@ -1,4 +1,28 @@
-package array.cannikin;
+package array.area;
+
+
+/**
+ *
+ * res = Math.min(height[left], height[right]) * (right -left)
+ *
+ * we can do two loops to get the res result, but actually, we can drop the value after
+ *
+ * (ai, aj) -> if( nums[ai]< nums[aj])
+ * S1 = ai*(aj-ai)
+ * S2 <= ai*(a?-ai)
+ *
+ * normally
+ *
+ *
+ *
+ *
+ *  T: O(N) S:O(1)
+ * 3/13/21 - one passed
+ */
+
+
+
+
 
 /**
  *  6/26/20.

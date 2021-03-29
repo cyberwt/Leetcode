@@ -1,13 +1,24 @@
 package tree.tire;
 
 /**
+ *
+ // how to explain your thoughts  =
+ // 1) construct a data structure
+ // 2) how to calling a method with a constructor
+
+ // E1: find the root.child exists or not, 对应的是当前的index(because root is null, +1 去比较)
+ // 跳出条件是 !null
+ // O1: 传char[] not string directly
+
+ * 2/25
+ *
+ *
  * backtrack 的方法，一次往上加，然后不断dfs
- *
- *
+
  * Time Complexity:
    addWord() - O(n), n = length of the new word
    search() - Worst case: O(m), m = the total number of characters in the Trie, word case upper bound O(26^N)
- *
+ *          - Best case: O(N)
  * 10/18/20.
  *
  */

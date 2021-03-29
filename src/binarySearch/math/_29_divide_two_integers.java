@@ -1,6 +1,37 @@
 package binarySearch.math;
 
 /**
+ *
+ *
+ *
+ * 有问题:
+
+
+ 1. CC
+ divenden: min_value  & -1 as the values
+ divisor should be zero
+ 2 . set up a flag: (dividend < 0) == (divisor < 0);  -> afftect result
+
+ 3. 理解，除数累计，变商
+
+ 4. 为什么 要用负项，因为 min_value 就不能转成整的，会溢出
+
+ 5. helper function - 理解是在负数运算的基础上，进行
+ > 退出条件 if(dividend > divisor) return 0;
+ > 为什么要判断: sum + sum < sum - 不要溢出 -2147483648 别往下走啦，stop!
+ while(dividend <= sum + sum && sum + sum < sum)
+
+ > 返回的值是在 不断缩距的基础上进行的:  return q + div(dividend - sum, divisor);
+
+
+ // basically it's a concept of binary search?
+ *
+ *
+ *
+ *
+ *
+ * 2/25/21
+ *
  * 二分法 + 递归 直至退出循环
  *
  * Trick: 负值求余
@@ -26,6 +57,7 @@ public class _29_divide_two_integers {
         if(dividend > divisor) return 0;
         int sum = divisor, q = 1;
         while(dividend <= sum + sum && sum + sum < sum){
+            // 就是 (10+10 +10 +10) 然后你记录的是 2+2 =4 为商，不断累积因数
             sum += sum;
             q += q;
         }

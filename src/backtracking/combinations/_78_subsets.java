@@ -21,7 +21,7 @@ public class _78_subsets {
         if(nums == null || nums.length == 0){
             return res;
         }
-        // why it's necessary to sort, as the problems aked
+        // why it's necessary to sort, as the problems asked
         Arrays.sort(nums);
         helper(res, nums, 0, new ArrayList<>());
         return res;
