@@ -48,14 +48,14 @@ public class _144_binary_tree_preorder_traversal {
             return list;
         }
 
-        inorder(list,root);
+        preorder(list,root);
         return list;
     }
 
-    public void inorder(List<Integer> list, TreeNode node){
+    public void preorder(List<Integer> list, TreeNode node){
         if(node == null) return;
         list.add(node.val);
-        inorder(list,node.left);
-        inorder(list,node.right);
+        preorder(list,node.left);
+        preorder(list,node.right);
     }
 }

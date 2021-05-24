@@ -7,6 +7,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ *
+ * 寻找同型node,可以直接把node结构 Serialization化
+ *
+ * 5/2/21
+ *
  * 1. 哪种iterative方法: 为什么是postorder, 看的其实是:
  * String left = traverse(root.left);
    String right = traverse(root.right);

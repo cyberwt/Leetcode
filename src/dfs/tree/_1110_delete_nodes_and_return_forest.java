@@ -8,6 +8,25 @@ import java.util.List;
 
 /**
  *
+ * 1.不但要输出nodelist, 原来的node也要剪枝的，
+ * 所以dfs() 做了2件事
+ * > 剪枝, 如果可以被砍，直接返回的是null
+ *  node.left = dfs(node.left, list, set);
+    node.right = dfs(node.right, list, set);
+ * > 回加to the list
+ *  if(set.contains(node.val)){
+      if(node.left != null) list.add(node.left);
+      if(node.right != null) list.add(node.right);
+         return null;
+    }
+
+   2. 因为root 恒没有机会判断
+   let's add it in the first parse
+ *
+ *
+ *
+ *
+ *
  * 往下走，怎么才能走对，dfs是有效的么
  *
  * T:O(N) S:O(N+H) H as the tree

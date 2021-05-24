@@ -9,7 +9,7 @@ import java.util.LinkedList;
 /**
  *
  *
- * >> understand it wrongly, you define the structure not level trancerse , but inorder one
+ * >> understand it wrongly, you define the structure not level traverse , but preorder
  *
  *
  * in: [1,2,3,null,null,4,5]

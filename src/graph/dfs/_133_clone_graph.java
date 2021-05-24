@@ -3,6 +3,13 @@ package graph.dfs;
 import java.util.*;
 
 /**
+ *
+ * bfs理解错了 <node, node>, 往里连neighbor
+ *
+ * dfs重做
+ *
+ * 3/30
+ *
  * 9/26
  * 没理解为什么dfs 什么时候会返回值，什么时候直接返空
  * >这里返回
@@ -44,21 +51,18 @@ public class _133_clone_graph {
     }
 
     public Node cloneGraph(Node node) {
-        HashMap<Integer,Node> map = new HashMap<Integer,Node>();
-        return dfs(node,map);
+        // Recursive solution. Use HashMap<Node, Node> instead of
+        // HashMap<Integer, Node> to avoid the situation when nodes have same values
+        return cloneGraphDFSHelper(node, new HashMap<Node, Node>());
     }
-    private Node dfs(Node node, HashMap<Integer,Node> map) {
+    public Node cloneGraphDFSHelper(Node node, HashMap<Node, Node> map) {
         if (node == null) return null;
-        if (map.containsKey(node.val)) {
-            return map.get(node.val);
-        } else {
-            Node clone = new Node(node.val);
-            map.put(node.val,clone);
-            for (int i = 0; i < node.neighbors.size(); i++) {
-                clone.neighbors.add(dfs(node.neighbors.get(i), map));
-            }
-            return clone;
-        }
+        if (map.containsKey(node)) return map.get(node);
+        Node newNode = new Node(node.val);
+        map.put(node, newNode);
+        for (Node n : node.neighbors)
+            newNode.neighbors.add(cloneGraphDFSHelper(n, map));
+        return newNode;
     }
 
 

@@ -9,15 +9,30 @@ import java.util.Stack;
  *
  * 经典栈题
  *
- * M1: 不断Iterate然后根据条件进出
+ * M1: 不断Iterate然后根据条件进出 => Stack<Character>
  *
- * M2: 优化很妙，用一个String, 代替了每次都要进出栈， 栈就可以记录匹配情况
+ * 是限制'(' & ')' 的进栈
+ *
+ * if(c == ')' && cnt > 0) 限制 ')'
+ *
+ *
+ * if( c == '(' && count > 0) 限制 '('
+ *
+ *
+ * M2:
+ *    只有'(' 才进栈， '('验证是否可能的出栈
+ *
+ *
+ * 优化很妙，用一个String, 代替了每次都要进出栈， 栈就可以记录匹配情况 => Stack<Integer>
  *  str.split("");
  *  String.join("", arr)
  *
  * T:O(N) S:O(n)
  *
- * 6/30/20.
+ *
+ *
+ *
+ * 4/2/21     6/30/20.
  */
 public class _1249_minimum_remove_to_make_valid_parentheses {
     public String minRemoveToMakeValid(String s) {
@@ -36,7 +51,7 @@ public class _1249_minimum_remove_to_make_valid_parentheses {
                 count--;
                 stack.push(val);
                 con++;
-            }else{
+            }else if(val !='(' && val!=')'){
                 stack.push(val);
             }
         }
@@ -44,6 +59,7 @@ public class _1249_minimum_remove_to_make_valid_parentheses {
         StringBuilder sb = new StringBuilder();
 
         for(Character cha: stack){
+            System.out.println(cha + " pp");
             if(cha == '(' && con>0){
                 sb.append(cha);
                 con--;

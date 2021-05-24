@@ -1,4 +1,4 @@
-package tree.bfs;
+package tree.recursion;
 
 import utils.TreeNode;
 
@@ -17,11 +17,11 @@ public class _107_binary_tree_level_order_traversal_II {
     public List<List<Integer>> levelOrderBottom(TreeNode root) {
         List<List<Integer>> res = new LinkedList<>();
         if(root == null) return res;
-        bfs(res,root,0);
+        dfs(res,root,0);
         return res;
     }
 
-    public void bfs(List<List<Integer>> res, TreeNode root, int level){
+    public void dfs(List<List<Integer>> res, TreeNode root, int level){
         if(root == null) return;
 
         if(res.size() <= level){
@@ -30,8 +30,8 @@ public class _107_binary_tree_level_order_traversal_II {
 
         res.get(res.size() -1-level).add(root.val);
 
-        bfs(res, root.left, level+1);
-        bfs(res, root.right, level+1);
+        dfs(res, root.left, level+1);
+        dfs(res, root.right, level+1);
 
     }
 

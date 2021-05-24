@@ -8,3 +8,6 @@ https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/discuss/2042
  while meet, left++ , sequeeze
  
  
+ 
+ 回文题
+ 实在不行倒过来求解，s, s.reverse

@@ -29,7 +29,7 @@ public class _36_valid_sudoku {
             for(int j=0; j<9; j++){
                 String str="(" + board[i][j] + ")";
                 if(board[i][j] != '.'){
-                    if(!set.add(str+i) || !set.add(j+ str) || !set.add((i/3)+str+(j/3) )){
+                    if(!set.add(str+i) || !set.add(j+ str) || !set.add((i/3)+str+(j/3))){
                         return false;
                     }
                 }

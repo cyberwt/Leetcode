@@ -4,6 +4,40 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
+ * M1:
+ * 用一个hashset.add(index), 妙趣了，还要检查i位置的重复计算  as word break two
+ *
+ * dsf(s, index, wordDict, set)
+ *
+ *  Error:
+ * 1. recorder 是存s 中index的，证明前面已经无条件访问过了
+ * 2. 1，2语句不能合并
+ * if(dfs(s,set,i,recorder)){
+ return true;
+ }
+ 3.  然后 recorder.add(i);
+  一波一波向里走，也是一个 T:O(n^2)
+ *
+ *
+ *
+ * M2:
+ * 1. Dp  record if the maps contains [i,j),
+ * if dp[i] true and s.substring(i,j) => means dp[j] true
+ * 2. 多开一个空间，这样比的话，就更好理解，不用对dp[0] 有特殊判断
+ *  T:O(N^2) N is the length of the string
+ *  S:O(N) opens a arr
+ *
+ *  优化：
+ *  M2内循环剪枝，直走word length 长度
+ *  j(new) = i+ word.length()
+ *
+ *  ! 但前提条件是 if(dp[i]  && i+ word.length() <= len) 否则直接跳出
+ *  是<= ！
+ *  T: O(N*m) m is the length of the wordDict
+ *
+ *
+ * 4/6/21
+ *
  *  M1: dfs +mem
  *
  *  > 想要纯dfs来做，但是会out of memory
@@ -52,32 +86,25 @@ public class _139_word_break {
     }
 
     public boolean wordBreak2(String s, List<String> wordDict) {
-        if(s== null || s.length() == 0){
-            return true;
+        if(s == null || s.length() == 0){
+            return false;
         }
-        HashSet<String> set = new HashSet<String>();
-
-        for(String str: wordDict){
-            set.add(str);
-        }
+        // sequence can only use one or mutiple words but needs connected
 
         int len = s.length();
-
-        boolean[] dp = new boolean[len];
-
-        //dp[i] means whether dp[0, .. i] can be formed by dict
-
-        //！他不是向前构造的，是一直向后构造
-
-        for(int i=0; i<len; i++){
-            for(int j=0;j<=i; j++){
-                String sub = s.substring(j,i+1);
-                if(set.contains(sub) && ( j==0 || dp[j-1])){
-                    dp[i] = true;
-                    break;
+        boolean[] dp = new boolean[len+1];
+        HashSet<String> set = new HashSet<String>(wordDict);
+        dp[0] = true; // as a basic arr
+        for(int i=0 ;i < s.length() ;i++){
+            // can't get j from this array
+            for(int j=i+1; j<= s.length(); j++){
+                String cur = s.substring(i,j);
+                if(dp[i] && set.contains(cur)){
+                    dp[j] = true;
                 }
             }
         }
-        return dp[len-1];
+
+        return dp[len];
     }
 }

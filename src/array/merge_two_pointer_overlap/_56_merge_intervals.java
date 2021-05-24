@@ -7,7 +7,13 @@ import java.util.Arrays;
 
 /**
  *
- *
+ >  Error: 1.2 自我修正了
+ 1. sort based on 首字符串
+ 2. res.add(pre) in the final
+ 3.** return res.toArray(new int[0][]) // give a empty array format to help referance
+
+
+ 3/30 倒在了最后一步
  * 2s:
  * 1. 二维数组理解的不好 int[] tem = intervals[0];
  *

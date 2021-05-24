@@ -4,6 +4,9 @@ import utils.TreeNode;
 
 /**
  *
+ * 怎样设置这个recursive保证全loop到
+ *
+ * 4/4
  * 典型的递归: 得到不同的node.left, node.right
  *
  * 1/31/21.

@@ -1,6 +1,24 @@
 package backtracking.array;
 
 /**
+ * E:
+ *
+ * 这道题本来就和我的理解不一样了， 为什么只构建  dfs(suduko), 因为每一个'.'我都要dfs
+ *
+ * 且成立的前提是
+ *  1. if(isValid(board, i, j, c))
+ *  2. 两个return 都是有必要的
+ *  第一个return, 当有'.'，但却不能找到匹配, always return false
+ *  第二个return, 当有解，没遇上任何一个'.', always return true
+ *  3. 3*(row/3)+ i/3 还不理解什么鬼意思 -> 是每一个3x3格子的序号，在用上 i/3 就在这个3x3格子里尽情玩耍
+ *
+ *
+ *  怎样优化？
+ *
+ *  > 可以每次从row 开始
+ * 1/25 + 4/1
+ *
+ *
  *
  * E:
  * 1.放 char for(char i = '1')

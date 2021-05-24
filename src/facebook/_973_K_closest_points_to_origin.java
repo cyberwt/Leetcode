@@ -5,6 +5,13 @@ import java.util.PriorityQueue;
 
 /**
  *
+ * 理解最大堆哎 -> 升序  PriorityQueue<int[]>((a,b)->(b[0]*b[0]+b[1]*b[1] -a[0]*a[0]-a[1]*a[1]));
+ *
+ *
+ *
+ *
+ *  4/4/21
+ *
  * -- Pq: E1:
  *
  * 1. 怎么写

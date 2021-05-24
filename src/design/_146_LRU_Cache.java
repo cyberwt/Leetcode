@@ -1,8 +1,24 @@
 package design;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /**
+ *
+ * >  LRU 基本属性 ：head, tail, map, size, capacity
+ *    Node: key, value, pre,nexy
+ *
+ * > addHead, remove 放 int key, int value, instead of Node
+ * 因为node毕竟是构造函数
+ * > 别忘了map.remove(key)
+ * > 在构造时， addHead, remove 进行size++ or size--
+ *
+ *
+ *
+ *
+ *
+ * 4/4
+ * --
+ *
  * // this.vairable  this.function for the calss property
  * // hashtable  vd hashmap
  *
@@ -24,113 +40,74 @@ import java.util.Hashtable;
  */
 public class _146_LRU_Cache {
 
-    class LRUCache {
-
-        private class DLinkedNode {
-            int key;
-            int value;
-            DLinkedNode pre;
-            DLinkedNode post;
+    class Node {
+        int key;
+        int val;
+        Node prev;
+        Node next;
+        public Node(int k, int v) {
+            key = k;
+            val = v;
         }
+    }
 
-        /**
-         * Always add the new node right after head;
-         */
-        private void addNode(DLinkedNode node) {
+    Node head;
+    Node tail;
+    Map<Integer, Node> map;
+    int capacity;
+    int size;
+    public LRUCache(int capacity) {
+        head = new Node(0, 0);
+        tail = new Node(0, 0);
+        map = new HashMap<>();
+        head.next = tail;
+        tail.prev = head;
+        this.capacity = capacity;
+        size = 0;
+    }
 
-            node.pre = head;
-            node.post = head.post;
+    public int get(int key) {
+        if (map.containsKey(key)) {
+            Node node = map.get(key);
+            remove(key);
+            addHead(key, node.val);
+            return node.val;
+        } else return -1;
+    }
 
-            head.post.pre = node;
-            head.post = node;
+    public void put(int key, int value) {
+        if (map.containsKey(key)) {
+            remove(key);
+            addHead(key, value);
+        } else {
+            addHead(key, value);
         }
+    }
 
-        /**
-         * Remove an existing node from the linked list.
-         */
-        private void removeNode(DLinkedNode node){
-            DLinkedNode pre = node.pre;
-            DLinkedNode post = node.post;
+    private void remove(int key) {
+        Node cur = map.get(key);
+        Node prev = cur.prev;
+        Node next = cur.next;
+        prev.next = next;
+        next.prev = prev;
+        size--;
+        map.remove(key);
+    }
 
-            pre.post = post;
-            post.pre = pre;
+    private void addHead(int key, int val) {
+        Node node = new Node(key, val);
+        Node next = head.next;
+        head.next = node;
+        node.next = next;
+        next.prev = node;
+        node.prev = head;
+        map.put(key, node);
+        size++;
+        if (size > capacity) {
+            Node preTail = tail.prev;
+            remove(preTail.key);
         }
-
-        /**
-         * Move certain node in between to the head.
-         */
-        private void moveToHead(DLinkedNode node){
-            this.removeNode(node);
-            this.addNode(node);
-        }
-
-        // pop the current tail.
-        private DLinkedNode popTail(){
-            DLinkedNode res = tail.pre;
-            this.removeNode(res);
-            return res;
-        }
-
-        private Hashtable<Integer, DLinkedNode>
-                cache = new Hashtable<Integer, DLinkedNode>();
-        private int count;
-        private int capacity;
-        private DLinkedNode head, tail;
-
-        public LRUCache(int capacity) {
-            this.count = 0;
-            this.capacity = capacity;
-
-            head = new DLinkedNode();
-            head.pre = null;
-
-            tail = new DLinkedNode();
-            tail.post = null;
-
-            head.post = tail;
-            tail.pre = head;
-        }
-
-        public int get(int key) {
-
-            DLinkedNode node = cache.get(key);
-            if(node == null){
-                return -1; // should raise exception here.
-            }
-
-            // move the accessed node to the head;
-            this.moveToHead(node);
-
-            return node.value;
-        }
-
-
-        public void put(int key, int value) {
-            DLinkedNode node = cache.get(key);
-
-            if(node == null){
-
-                DLinkedNode newNode = new DLinkedNode();
-                newNode.key = key;
-                newNode.value = value;
-
-                this.cache.put(key, newNode);
-                this.addNode(newNode);
-
-                ++count;
-
-                if(count > capacity){
-                    // pop the tail
-                    DLinkedNode tail = this.popTail();
-                    this.cache.remove(tail.key);
-                    --count;
-                }
-            }else{
-                // update the value.
-                node.value = value;
-                this.moveToHead(node);
-            }
-        }
+    }
     }
 
 /**

@@ -3,7 +3,7 @@ package tree.iterate;
 import utils.TreeNode;
 
 /**
- * 极好的映照 206
+ * 极好的映照 206, 669
  * 翻上翻下，我是看 node的图像决定的
  *
  *

@@ -5,10 +5,10 @@ package facebook;
  */
 
 
-https://hackr.io/blog/facebook-interview-questions
 
 
-public class List<int[]> aboveAverageSubarrays(int[] A){}
+
+
 
 public class List<int[]> aboveAverageSubarrays(int[] A) {
         // A need a CC check?

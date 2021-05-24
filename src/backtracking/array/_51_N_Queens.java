@@ -4,6 +4,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ *
+ *> 1. col 是每次判断时不动的点
+ *
+ *
+ *
+ *
+ * 4/1
+ *
+ *
  * 半刷
  * >1. dfs方程
  * dfs(board, res, colIndex)

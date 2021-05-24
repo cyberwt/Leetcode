@@ -7,14 +7,14 @@ import java.util.PriorityQueue;
 /**
  *
  * 1. complexity: T: O(NlnK) S:O(1)
-   2. Error: if(node == null) skip add to pq
+   2. Error: if(node == null) skip add to pq return null
    3. pq Comparator 理解
    4. 其他做法 - 理解divide conquer
  *
  * N is the total elements, k is the length of each list
      T:O(Nlgk) S:O(N)
 
- 3/7/21
+ 3/7/21  4/29/21
 
  * 9/20
  * M1. Divide and Conquer

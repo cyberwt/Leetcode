@@ -4,6 +4,13 @@ import java.util.Stack;
 
 /**
  *
+ *
+ * 着重理解
+ * M3: 单调栈
+ * M5: 双数组 left[], right[]，怎么理解
+ *
+ * 5/19/21
+ *
  * Keep M1: stack
  *
  * M5: still reach TLE: but get local maximum index, from this index, gi back

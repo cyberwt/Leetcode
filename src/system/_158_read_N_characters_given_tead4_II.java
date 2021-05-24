@@ -3,6 +3,14 @@ package system;
 /**
  *
  *
+ * 就是buffCnt 一直和buffPtn  比较
+ *
+ * 理得不是那么清楚哎
+ * buffCnt buffPtn 用if 表示好了
+ *  while(count<n && buffPtn < buffCnt)
+ *
+ * 3/30
+ *
  * 1。里面那个while用的很巧妙 两个限定条件，index<n && buffPtn < buffCnt
  * 2。能够break掉整个循环的条件: if(buffPtn<4) break;
  * 3。理解整个归零的思想
